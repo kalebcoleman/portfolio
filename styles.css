@@ -1,0 +1,548 @@
+html, body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 110px 501px 115px;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar main-content"
+        "footer footer";
+    height: 100vh;   
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: lightgray;
+    border: 1px solid black;
+    padding: 10px;
+    height: 100%;
+    z-index: 10;
+}
+
+.profile-picture {
+    position: absolute;
+    top: 11px;
+    left: 5px;
+    width: 105px;
+    height: 105px;
+}
+
+.title {
+    color : #666;
+}
+
+.nau-logo {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    width: 150px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: lightgray;
+    padding: 10px;
+    border: 1px solid black; 
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar h3 {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #666;
+}
+
+.sidebar a {
+    margin: 5px 0;
+    color: white;
+    font-size: 14px;
+}
+
+.Resume-button button {
+    background-color: #999;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 95px;
+    margin-bottom: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Resume-button button:hover {
+    background-color: #666;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px black;
+}
+
+.Resume-button button:active {
+    background-color: #444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px black;
+}
+
+.Ai-button button {
+    background-color: #999;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Ai-button button:hover {  
+    background-color: #666;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px black;
+}
+
+.Ai-button button:active {
+    background-color: #444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px black;
+}
+
+.main-content {
+    grid-area: main-content;
+    background-color: lightgray;
+    border: 1px solid black;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#Summary {
+    text-align: center;
+}   
+
+#Summary h4 {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+#Summary p {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 0 10px;
+    color: white;
+    background: #999;
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#Summary p:hover {
+    background: #666;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+}
+
+.skills-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+#Skills h4 {
+    text-align: center;
+    color: #666;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+#Skills ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; 
+}
+
+#Skills ul li {
+    color: white;
+    background-color: #999; 
+    text-align: center;
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px;
+    margin-top: 10px;
+    
+}
+
+#Skills ul li:hover {
+    background-color: #666; 
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+}
+
+#Projects {
+    text-align: center;
+}
+
+.Projects-container {
+    grid-template-columns: 1fr; 
+    grid-template-rows: auto auto;
+    gap: 10px;
+}
+
+#Projects h4 {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+#Projects p {
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: white;
+    background: #999;
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#Projects p:hover {
+    background-color: #666; 
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+}
+
+#education-experience { 
+    text-align: center;
+}
+
+#education-experience h4 {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.education-table {
+    display: flex;
+    justify-content: center;
+    color: white;
+    overflow-x: auto;
+    background: #999;
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px; 
+    margin: 20px 0; 
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.education-table:hover {
+    background-color: #666; 
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px #666, 0 6px 20px #666;
+}
+
+.education-table table {
+    width: 95%;
+    border-collapse: collapse;
+}
+
+.education-table th, .education-table td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: lightgray;
+    padding: 5px;
+    height: 100%; 
+    border: 1px solid black; 
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#Contact {
+    text-align: center;
+}
+
+#Contact h4 {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 2px;
+    margin-top: 7px;
+}
+
+#Contact p {
+    margin-top: 5px;
+    color: white;
+}
+
+#Contact a {
+    color: white;
+}
+
+#footerbutton {
+    display: none;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+#footerbutton button{
+    background-color: #999;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+#footerbutton button:hover {
+    background-color: #666;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px black;
+}
+
+#footerbutton button:active {
+    background-color: #444;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px black;
+}
+
+/*start by making header items smaller to fit */
+@media (max-width: 950px) {
+    .header .title h1, h2 {
+        font-size: 21px;
+    }
+
+    #Summary h4,
+    #Skills h4,
+    #Projects h4,
+    #education-experience h4,
+    #Certificatites-and-Badges h4,
+    #Contact h4 {
+        font-size: 21px; 
+    }
+
+    .profile-picture {
+        width: 95px;
+        height: 95px;
+    }
+
+    .nau-logo {
+        width: 125px;
+        height: auto;
+    }
+
+    .education-table th, .education-table td {
+        font-size: 16px;
+    }
+}
+
+/* header text smaller again*/
+@media (max-width: 875px) {
+    .header .title h1, h2 {
+        font-size: 20px;
+    }
+
+    #Summary h4,
+    #Skills h4,
+    #Projects h4,
+    #education-experience h4,
+    #Certificatites-and-Badges h4,
+    #Contact h4 {
+        font-size: 20px; 
+    }
+}
+
+/*make header grid area smaller as well as picture*/
+@media (max-width: 810px) {
+    .header .title h1, h2 {
+        font-size: 18px;
+    }
+    #Summary h4,
+    #Skills h4,
+    #Projects h4,
+    #education-experience h4,
+    #Certificatites-and-Badges h4,
+    #Contact h4 {
+        font-size: 17px; 
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nau-logo {
+        width: 110px;
+        height: auto;
+    }
+
+    .Resume-button button {
+        margin-top: 115px;
+    }
+
+    .container {
+    grid-template-rows: 90px 521px 115px;
+    grid-template-areas: 
+    "header header"
+    "sidebar main-content"
+    "footer footer";
+    }
+}
+
+/*removes side bar and pictures*/
+@media (max-width: 720px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 503px 135px; 
+        grid-template-areas: 
+            "header"
+            "main-content"
+            "footer";
+    }
+
+    .profile-picture,
+    .nau-logo {
+        display: none;
+    }
+
+    .sidebar {
+        display: none; 
+    }
+
+    #footerbutton {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+/* gradually make all text smaller to fit phones */
+@media (max-width: 500px) {
+    .header .title h1, .header .title h2 {
+        font-size: 17px;
+    }
+
+    #Summary h4,
+    #Skills h4,
+    #Projects h4,
+    #education-experience h4,
+    #Certificatites-and-Badges h4,
+    #Contact h4 {
+        font-size: 17px; 
+    }
+
+    #Summary p,
+    #Skills p,
+    #Projects p,
+    #education-experience p,
+    #Certificatites-and-Badges p,
+    #Skills ul {
+        font-size: 14px; 
+    }
+
+    .education-table th, .education-table td {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    #footerbutton button {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 365px) {
+    .header .title h1, .header .title h2 {
+        font-size: 14px;
+    }
+
+    #Summary h4,
+    #Skills h4,
+    #Projects h4,
+    #education-experience h4,
+    #Certificatites-and-Badges h4,
+    #Contact h4 {
+        font-size: 15px; 
+    }
+
+    #Summary p,
+    #Skills p,
+    #Projects p,
+    #education-experience p,
+    #Certificatites-and-Badges p,
+    #Contact p,
+    #Skills ul {
+        font-size: 13px; 
+    }
+
+    .education-table th, .education-table td {
+        font-size: 11px;
+        padding: 2px;
+    }
+
+    #footerbutton button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 290px) {
+    .header .title h1, .header .title h2 {
+        font-size: 13px;
+    }
+
+    #Summary h4,
+    #Skills h4,
+    #Projects h4,
+    #education-experience h4,
+    #Certificatites-and-Badges h4,
+    #Contact h4 {
+        font-size: 13px; 
+    }
+    
+    #Summary p,
+    #Skills p,
+    #Projects p,
+    #education-experience p,
+    #Certificatites-and-Badges p,
+    #Contact p,
+    #Skills ul {
+        font-size: 12px; 
+    }
+
+    .education-table th, .education-table td {
+        font-size: 9px;
+        padding: 0px;
+    }
+
+    #footerbutton button {
+        font-size: 10px;
+    }
+}
