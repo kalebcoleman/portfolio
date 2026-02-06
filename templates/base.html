@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kaleb Coleman portfolio built with Flask, HTML/CSS, and JavaScript.">
+    <title>{{ profile.name }} | {{ page_title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% for stylesheet in page_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/' + stylesheet) }}">
+    {% endfor %}
+</head>
+<body class="{{ page_class }}">
+    <div class="background-aura" aria-hidden="true"></div>
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="brand-block">
+                <span class="brand-mark" aria-hidden="true">KC</span>
+                <div>
+                    <p class="brand-name">{{ profile.name }}</p>
+                    <p class="brand-role">{{ profile.degree }} | {{ profile.minor }}</p>
+                </div>
+            </div>
+            <nav class="site-nav" aria-label="Portfolio endpoint navigation">
+                {% for item in nav_items %}
+                <a href="{{ url_for(item.endpoint) }}" class="nav-link {% if active_page == item.page_id %}is-active{% endif %}">
+                    <span class="endpoint-id">/{{ item.page_id }}</span> {{ item.label }}
+                </a>
+                {% endfor %}
+            </nav>
+            <a class="resume-button" href="{{ profile.resume_url }}" target="_blank" rel="noopener noreferrer">
+                Download Resume
+            </a>
+        </header>
+
+        <main class="site-main">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <p class="footer-title">Contact</p>
+            <ul class="footer-links">
+                <li><a href="tel:+14803598122">{{ profile.phone }}</a></li>
+                <li><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>
+                <li><a href="{{ profile.linkedin_url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="{{ profile.github_url }}" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    {% block libraries %}{% endblock %}
+    {% for script in page_scripts %}
+    <script src="{{ url_for('static', filename='js/' + script) }}" defer></script>
+    {% endfor %}
+</body>
+</html>

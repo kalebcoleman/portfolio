@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="p4-header card-surface">
+    <p class="p2-tag">Case Studies</p>
+    <h1>Featured Project Case Studies</h1>
+    <p>Deep dives into challenge, role, process, and outcomes for selected portfolio projects.</p>
+</section>
+
+<section class="p4-grid">
+    {% for case in case_studies %}
+    <article class="p4-panel card-surface case-card">
+        <h2>{{ case.project }}</h2>
+        <p class="case-role"><strong>Role:</strong> {{ case.role }}</p>
+
+        <h3>Challenge</h3>
+        <p>{{ case.challenge }}</p>
+
+        <h3>Process</h3>
+        <ul class="project-list">
+            {% for step in case.process %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Outcomes</h3>
+        <ul class="project-list">
+            {% for outcome in case.outcomes %}
+            <li>{{ outcome }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}

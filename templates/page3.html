@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="p3-header card-surface">
+    <p class="p2-tag">Data Analytics</p>
+    <h1>NBA Modeling Gallery and AI Course Findings</h1>
+    <p>Selected outputs from your multi-source NBA shot-data engineering and modeling workflow.</p>
+</section>
+
+<section class="p3-panel card-surface">
+    <h2>NBA GAM and Modeling Gallery</h2>
+    <div class="plot-gallery">
+        {% for plot in nba_plots %}
+        <article class="plot-card">
+            <div class="plot-media">
+                <img src="{{ url_for('static', filename='images/' + plot.file) }}" alt="{{ plot.title }}">
+            </div>
+            <h3>{{ plot.title }}</h3>
+            <p>{{ plot.caption }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="p3-panel card-surface">
+    <h2>AI Courses Identified</h2>
+    <div class="table-shell" role="region" aria-label="Detected AI related courses">
+        <table>
+            <thead>
+                <tr>
+                    <th>Prefix</th>
+                    <th>Number</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in ai_courses %}
+                <tr>
+                    <td>{{ row.prefix }}</td>
+                    <td>{{ row.number }}</td>
+                    <td>{{ row.title }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

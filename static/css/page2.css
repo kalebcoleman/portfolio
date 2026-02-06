@@ -1,0 +1,124 @@
+.page-two {
+    --surface-color: rgba(255, 252, 246, 0.93);
+    --surface-border: rgba(60, 38, 16, 0.14);
+    --text-primary: #34210f;
+    background: linear-gradient(155deg, #fff4df 0%, #ffe8ef 50%, #edf3ff 100%);
+}
+
+.page-two .background-aura {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255, 122, 89, 0.24), transparent 40%),
+        radial-gradient(circle at 86% 22%, rgba(60, 90, 230, 0.22), transparent 39%),
+        radial-gradient(circle at 58% 86%, rgba(255, 205, 95, 0.24), transparent 42%);
+}
+
+.p2-header {
+    padding: 1.7rem;
+    border-left: 8px solid #ff7a59;
+}
+
+.p2-tag {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    color: #6c391d;
+}
+
+.p2-header h1 {
+    margin: 0.4rem 0 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.55rem, 2.5vw, 2.35rem);
+}
+
+.p2-header p {
+    margin: 0.7rem 0 0;
+    max-width: 78ch;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    padding: 1.15rem;
+    border-top: 5px solid rgba(255, 122, 89, 0.75);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.project-card h2,
+.project-card h3 {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.project-description {
+    margin: 0;
+}
+
+.project-list {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.stack-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.stack-chip {
+    border-radius: 999px;
+    padding: 0.22rem 0.56rem;
+    background: rgba(52, 33, 15, 0.09);
+    border: 1px solid rgba(52, 33, 15, 0.12);
+    font-size: 0.82rem;
+}
+
+.table-shell {
+    margin-top: 0.6rem;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 33, 15, 0.16);
+}
+
+.table-shell table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 430px;
+}
+
+.table-shell th,
+.table-shell td {
+    padding: 0.5rem;
+    border-bottom: 1px solid rgba(52, 33, 15, 0.1);
+    text-align: left;
+    font-size: 0.88rem;
+}
+
+.table-shell thead {
+    background: rgba(255, 122, 89, 0.18);
+}
+
+.table-note {
+    margin: 0.25rem 0 0;
+    font-size: 0.83rem;
+    color: #66381e;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .p2-header,
+    .project-card {
+        padding: 1rem;
+    }
+}

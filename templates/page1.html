@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="p1-hero card-surface">
+    <p class="p1-eyebrow">Professional Overview</p>
+    <h1>{{ profile.name }}</h1>
+    <p class="p1-lead">{{ profile.headline }}</p>
+    <p class="p1-copy">{{ profile.summary }}</p>
+    <div class="p1-meta">
+        <span>{{ profile.degree }}</span>
+        <span>{{ profile.minor }}</span>
+        <span>{{ profile.graduation }}</span>
+    </div>
+    <div class="p1-actions">
+        <a class="inline-cta" href="{{ profile.linkedin_url }}" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+        <a class="inline-cta subtle" href="{{ profile.github_url }}" target="_blank" rel="noopener noreferrer">Explore GitHub</a>
+    </div>
+</section>
+
+<section class="p1-grid">
+    <article class="p1-panel card-surface">
+        <h2>Summary</h2>
+        <p>
+            Data science undergraduate focused on machine learning systems, data engineering,
+            and reproducible experimentation with an emphasis on practical impact.
+        </p>
+    </article>
+
+    <article class="p1-panel card-surface">
+        <h2>Education</h2>
+        <ul class="timeline">
+            {% for item in education %}
+            <li>
+                <h3>{{ item.institution }}</h3>
+                <p>{{ item.program }}</p>
+                <p>{{ item.details }}</p>
+                <p class="timeline-date">{{ item.timeline }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article class="p1-panel p1-panel-wide card-surface">
+        <h2>Technical Skills</h2>
+        <div class="skill-groups">
+            {% for category, entries in skills.items() %}
+            <section class="skill-group">
+                <h3>{{ category }}</h3>
+                <div class="chip-wrap">
+                    {% for skill in entries %}
+                    <span class="skill-chip">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endfor %}
+        </div>
+    </article>
+
+    <article class="p1-panel p1-panel-wide card-surface">
+        <h2>Professional Experience</h2>
+        <div class="experience-grid">
+            {% for role in experience %}
+            <section class="experience-card">
+                <h3>{{ role.title }}</h3>
+                <p class="company">{{ role.company }}</p>
+                <p>{{ role.summary }}</p>
+            </section>
+            {% endfor %}
+        </div>
+    </article>
+</section>
+{% endblock %}

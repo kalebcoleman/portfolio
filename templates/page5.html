@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="p5-header card-surface">
+    <p class="p2-tag">Build Notes</p>
+    <h1>Build Notes Across Portfolio Projects</h1>
+    <p>This page is cross-project by design and summarizes implementation choices for the projects on /2.</p>
+</section>
+
+<section class="p5-notes-grid">
+    {% for item in project_build_notes %}
+    <article class="p5-panel card-surface">
+        <h2>{{ item.project }}</h2>
+        <p class="project-description">{{ item.focus }}</p>
+
+        <h3>Build Notes</h3>
+        <ul class="project-list">
+            {% for note in item.notes %}
+            <li>{{ note }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Tech Focus</h3>
+        <div class="stack-wrap">
+            {% for tech in item.tech_focus %}
+            <span class="stack-chip">{{ tech }}</span>
+            {% endfor %}
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
