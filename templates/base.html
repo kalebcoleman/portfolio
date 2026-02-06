@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kaleb Coleman portfolio built with Flask, HTML/CSS, and JavaScript.">
+    <meta name="description" content="Kaleb Coleman — Data Science portfolio. Machine learning, sports analytics, and AI systems.">
     <title>{{ profile.name }} | {{ page_title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     {% for stylesheet in page_styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/' + stylesheet) }}">
@@ -21,10 +21,10 @@
                 <span class="brand-mark" aria-hidden="true">KC</span>
                 <div>
                     <p class="brand-name">{{ profile.name }}</p>
-                    <p class="brand-role">{{ profile.degree }} | {{ profile.minor }}</p>
+                    <p class="brand-role">{{ profile.degree }} <span class="brand-sep">/</span> {{ profile.minor }}</p>
                 </div>
             </div>
-            <nav class="site-nav" aria-label="Portfolio endpoint navigation">
+            <nav class="site-nav" aria-label="Portfolio navigation">
                 {% for item in nav_items %}
                 <a href="{{ url_for(item.endpoint) }}" class="nav-link {% if active_page == item.page_id %}is-active{% endif %}">
                     <span class="endpoint-id">/{{ item.page_id }}</span> {{ item.label }}
@@ -32,7 +32,7 @@
                 {% endfor %}
             </nav>
             <a class="resume-button" href="{{ profile.resume_url }}" target="_blank" rel="noopener noreferrer">
-                Download Resume
+                <span class="resume-arrow" aria-hidden="true">&darr;</span> Resume
             </a>
         </header>
 
@@ -41,7 +41,10 @@
         </main>
 
         <footer class="site-footer">
-            <p class="footer-title">Contact</p>
+            <div class="footer-brand">
+                <p class="footer-sig">Built by Kaleb Coleman</p>
+                <p class="footer-tech">Flask + Jinja2 &middot; Deployed on Azure</p>
+            </div>
             <ul class="footer-links">
                 <li><a href="tel:+14803598122">{{ profile.phone }}</a></li>
                 <li><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>

@@ -1,43 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="p1-hero card-surface">
-    <p class="p1-eyebrow">Professional Overview</p>
-    <h1>{{ profile.name }}</h1>
-    <p class="p1-lead">{{ profile.headline }}</p>
-    <p class="p1-copy">{{ profile.summary }}</p>
-    <div class="p1-meta">
-        <span>{{ profile.degree }}</span>
-        <span>{{ profile.minor }}</span>
-        <span>{{ profile.graduation }}</span>
+<section class="hero card-surface">
+    <p class="hero-eyebrow">
+        <span class="terminal-prompt">&gt;</span> Professional Overview
+    </p>
+    <h1 class="hero-title">{{ profile.name }}</h1>
+    <p class="hero-headline">{{ profile.headline }}</p>
+    <p class="hero-summary">{{ profile.summary }}</p>
+    <div class="hero-meta">
+        <span class="meta-chip"><span class="chip-icon">&#127891;</span> {{ profile.degree }}</span>
+        <span class="meta-chip"><span class="chip-icon">&#128274;</span> {{ profile.minor }}</span>
+        <span class="meta-chip"><span class="chip-icon">&#128197;</span> {{ profile.graduation }}</span>
     </div>
-    <div class="p1-actions">
-        <a class="inline-cta" href="{{ profile.linkedin_url }}" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
-        <a class="inline-cta subtle" href="{{ profile.github_url }}" target="_blank" rel="noopener noreferrer">Explore GitHub</a>
+    <div class="hero-actions">
+        <a class="cta-primary" href="{{ profile.linkedin_url }}" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+        <a class="cta-secondary" href="{{ profile.github_url }}" target="_blank" rel="noopener noreferrer">Explore GitHub</a>
     </div>
 </section>
 
 <section class="p1-grid">
     <article class="p1-panel card-surface">
-        <h2>Summary</h2>
-        <p>
-            Data science undergraduate focused on machine learning systems, data engineering,
-            and reproducible experimentation with an emphasis on practical impact.
-        </p>
+        <h2>Education</h2>
+        {% for item in education %}
+        <div class="education-item">
+            <h3>{{ item.institution }}</h3>
+            <p>{{ item.program }}</p>
+            <p>{{ item.details }}</p>
+            <p class="education-date">{{ item.timeline }}</p>
+        </div>
+        {% endfor %}
     </article>
 
     <article class="p1-panel card-surface">
-        <h2>Education</h2>
-        <ul class="timeline">
-            {% for item in education %}
-            <li>
-                <h3>{{ item.institution }}</h3>
-                <p>{{ item.program }}</p>
-                <p>{{ item.details }}</p>
-                <p class="timeline-date">{{ item.timeline }}</p>
-            </li>
+        <h2>Professional Experience</h2>
+        <div class="experience-grid" style="grid-template-columns: 1fr;">
+            {% for role in experience %}
+            <section class="experience-card">
+                <h3>{{ role.title }}</h3>
+                <p class="company">{{ role.company }}</p>
+                <p>{{ role.summary }}</p>
+            </section>
             {% endfor %}
-        </ul>
+        </div>
     </article>
 
     <article class="p1-panel p1-panel-wide card-surface">
@@ -51,19 +56,6 @@
                     <span class="skill-chip">{{ skill }}</span>
                     {% endfor %}
                 </div>
-            </section>
-            {% endfor %}
-        </div>
-    </article>
-
-    <article class="p1-panel p1-panel-wide card-surface">
-        <h2>Professional Experience</h2>
-        <div class="experience-grid">
-            {% for role in experience %}
-            <section class="experience-card">
-                <h3>{{ role.title }}</h3>
-                <p class="company">{{ role.company }}</p>
-                <p>{{ role.summary }}</p>
             </section>
             {% endfor %}
         </div>

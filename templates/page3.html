@@ -2,9 +2,9 @@
 
 {% block content %}
 <section class="p3-header card-surface">
-    <p class="p2-tag">Data Analytics</p>
+    <p class="section-tag"><span class="terminal-prompt">&gt;</span> Data Analytics</p>
     <h1>NBA Modeling Gallery and AI Course Findings</h1>
-    <p>Selected outputs from your multi-source NBA shot-data engineering and modeling workflow.</p>
+    <p class="section-subtitle">Selected outputs from multi-source NBA shot-data engineering and modeling workflows.</p>
 </section>
 
 <section class="p3-panel card-surface">
@@ -36,8 +36,8 @@
             <tbody>
                 {% for row in ai_courses %}
                 <tr>
-                    <td>{{ row.prefix }}</td>
-                    <td>{{ row.number }}</td>
+                    <td><code>{{ row.prefix }}</code></td>
+                    <td><code>{{ row.number }}</code></td>
                     <td>{{ row.title }}</td>
                 </tr>
                 {% endfor %}
