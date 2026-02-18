@@ -2,6 +2,19 @@
 
 Personal portfolio web app built with Flask, HTML/CSS, and JavaScript.
 
+## Website Preview
+
+### Desktop
+
+![Overview (Dark)](static/images/readme/overview-dark-desktop.png)
+![Projects (Light)](static/images/readme/projects-light-desktop.png)
+![Analytics (Dark)](static/images/readme/analytics-dark-desktop.png)
+![Case Studies (Light)](static/images/readme/case-studies-light-desktop.png)
+
+### Mobile
+
+<img src="static/images/readme/projects-mobile-light.png" alt="Projects page mobile preview" width="280" />
+
 ## What This App Includes
 
 - Five endpoint pages:
