@@ -6,7 +6,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from app import app
+from app import CASE_STUDIES, PROJECTS, PROJECT_BUILD_NOTES, app  # noqa: E402
 
 
 class PortfolioRouteTests(unittest.TestCase):
@@ -35,7 +35,9 @@ class PortfolioRouteTests(unittest.TestCase):
                 self.assertIn(marker, response.data)
 
     def test_toolbox_api_contract(self) -> None:
-        response = self.client.post("/api/toolbox/query", json={"query": "run monte carlo"})
+        response = self.client.post(
+            "/api/toolbox/query", json={"query": "run monte carlo"}
+        )
         self.assertEqual(response.status_code, 200)
 
         payload = response.get_json()
@@ -44,6 +46,31 @@ class PortfolioRouteTests(unittest.TestCase):
 
         for key in ("query", "matched_tool", "suggestion", "example_call"):
             self.assertIn(key, payload)
+
+    def test_project_counts(self) -> None:
+        self.assertEqual(len(PROJECTS), 10)
+        self.assertEqual(len(CASE_STUDIES), 10)
+        self.assertEqual(len(PROJECT_BUILD_NOTES), 10)
+
+    def test_new_projects_render(self) -> None:
+        page_two = self.client.get("/2")
+        self.assertEqual(page_two.status_code, 200)
+        self.assertIn(b"NBA Analytics Platform", page_two.data)
+        self.assertIn(b"Stuxnet", page_two.data)
+
+        page_four = self.client.get("/4")
+        self.assertEqual(page_four.status_code, 200)
+        self.assertIn(b"NAU Capstone", page_four.data)
+
+        page_five = self.client.get("/5")
+        self.assertEqual(page_five.status_code, 200)
+        self.assertIn(b"Dockerized", page_five.data)
+
+    def test_theme_toggle_and_bootstrap_script_present(self) -> None:
+        page_one = self.client.get("/1")
+        self.assertEqual(page_one.status_code, 200)
+        self.assertIn(b"theme-toggle", page_one.data)
+        self.assertIn(b"localStorage", page_one.data)
 
 
 if __name__ == "__main__":

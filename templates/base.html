@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <script>
+    (function () {
+        try {
+            var storedTheme = localStorage.getItem("theme");
+            if (storedTheme === "light" || storedTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", storedTheme);
+                return;
+            }
+            if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        } catch (err) {
+            /* no-op */
+        }
+    })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kaleb Coleman — Data Science portfolio. Machine learning, sports analytics, and AI systems.">
     <title>{{ profile.name }} | {{ page_title }}</title>
@@ -13,7 +29,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/' + stylesheet) }}">
     {% endfor %}
 </head>
-<body class="{{ page_class }}">
+<body>
     <div class="background-aura" aria-hidden="true"></div>
     <div class="site-shell">
         <header class="site-header">
@@ -31,9 +47,20 @@
                 </a>
                 {% endfor %}
             </nav>
-            <a class="resume-button" href="{{ profile.resume_url }}" target="_blank" rel="noopener noreferrer">
-                <span class="resume-arrow" aria-hidden="true">&darr;</span> Resume
-            </a>
+            <div class="header-actions">
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark and light mode"
+                    title="Toggle theme"
+                >
+                    <span id="theme-toggle-icon" class="theme-toggle-icon" aria-hidden="true">◐</span>
+                </button>
+                <a class="resume-button" href="{{ profile.resume_url }}" target="_blank" rel="noopener noreferrer">
+                    <span class="resume-arrow" aria-hidden="true">&darr;</span> Resume
+                </a>
+            </div>
         </header>
 
         <main class="site-main">
@@ -54,6 +81,7 @@
         </footer>
     </div>
 
+    <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script>
     {% block libraries %}{% endblock %}
     {% for script in page_scripts %}
     <script src="{{ url_for('static', filename='js/' + script) }}" defer></script>

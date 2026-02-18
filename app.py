@@ -6,15 +6,14 @@ app = Flask(__name__)
 
 PROFILE: dict[str, Any] = {
     "name": "Kaleb Coleman",
-    "headline": "Data Science Undergraduate | Machine Learning, Sports Analytics & AI Systems",
+    "headline": "Data Science Undergraduate | ML, Data Engineering, Full-Stack AI, Cybersecurity",
     "summary": (
-        "Data science undergraduate who builds end-to-end systems \u2014 from raw API "
-        "ingestion and schema-validated pipelines to predictive models and interactive "
-        "dashboards. Core strengths in statistical modeling, feature engineering, and "
-        "reproducible workflows across Python, R, and SQL. Experience shipping full-stack "
-        "AI applications (Django + React), spatial sports analytics packages, and "
-        "leakage-aware predictive models. Exploring deep learning, computer vision, "
-        "and autonomous systems."
+        "Data science undergraduate who builds end-to-end systems from raw API ingestion and "
+        "schema-validated pipelines to predictive models and interactive dashboards. Core strengths "
+        "in statistical modeling, feature engineering, and reproducible workflows across Python, R, "
+        "and SQL. Experience shipping full-stack AI applications, spatial sports analytics packages, "
+        "and leakage-aware predictive models. Exploring deep learning, computer vision, and "
+        "autonomous systems."
     ),
     "degree": "B.S. in Data Science",
     "minor": "Cybersecurity minor",
@@ -36,43 +35,38 @@ EDUCATION: list[dict[str, str]] = [
 ]
 
 SKILLS: dict[str, list[str]] = {
-    "Languages": ["Python", "R", "JavaScript", "SQL", "C", "HTML/CSS"],
+    "Languages": ["Python", "R", "JavaScript", "TypeScript", "SQL", "C", "HTML/CSS"],
     "Data & ML": [
-        "pandas", "NumPy", "scikit-learn", "PyTorch", "PyGAM",
-        "XGBoost", "Weights & Biases",
+        "pandas", "NumPy", "scikit-learn", "PyTorch", "PyGAM", "Logistic regression",
+        "GMM", "PCA", "Ridge/LASSO/Elastic Net", "Random Forest", "Brier score calibration",
     ],
     "Statistical Methods": [
-        "Logistic regression", "GAMs", "Ridge/Elastic Net/LASSO",
-        "Random forests", "GBM", "Bootstrap", "k-fold CV",
+        "GAMs", "Bootstrap", "k-fold CV", "Monte Carlo simulation", "Elo rating system",
+        "Leakage-aware rolling windows", "AUC calibration diagnostics",
     ],
     "Deep Learning": [
-        "Feedforward networks (ANN)", "CNN", "RNN",
-        "Hyperparameter optimization", "Filter visualization",
+        "Feedforward networks (ANN)", "CNN", "RNN", "Hyperparameter optimization",
+        "Filter visualization", "Experiment tracking (W&B)",
     ],
     "AI & Agents": [
-        "Google Gemini", "LlamaIndex ReAct", "RAG",
-        "HuggingFace embeddings", "PDF vector indexing",
-        "Minimax / alpha-beta pruning",
+        "Google Gemini", "LlamaIndex ReAct", "RAG", "HuggingFace embeddings",
+        "PDF vector indexing", "Intent classification",
     ],
     "Data Engineering": [
-        "API ingestion", "JSON parsing", "Schema validation",
-        "SQLite", "PostgreSQL", "SQLAlchemy", "ETL pipelines",
+        "API ingestion", "JSON parsing", "Schema validation", "SQLite upserts",
+        "PostgreSQL", "SQLAlchemy", "ETL pipelines", "concurrent.futures", "Makefile automation",
     ],
     "Web Development": [
-        "Flask", "Django REST Framework", "React 18", "Vite",
-        "JWT auth", "REST API design", "Jinja2",
+        "Flask", "Django REST Framework", "Fastify", "Next.js 14", "React 18", "Vite",
+        "JWT auth", "REST API design", "Jinja2", "Prisma", "Zod", "Stripe",
     ],
     "DevOps & Tools": [
-        "Docker", "docker-compose", "Makefile", "Git/GitHub",
-        "GitHub Actions CI/CD", "Azure Web App", "Gunicorn",
-    ],
-    "R Ecosystem": [
-        "tidyverse", "devtools", "testthat", "roxygen2",
-        "glmnet", "pROC", "DBI/RSQLite", "rmarkdown",
+        "Docker", "docker-compose", "Git/GitHub", "GitHub Actions CI/CD", "Azure Web App",
+        "Gunicorn", "Redis", "pnpm", "Vitest", "pytest", "unittest",
     ],
     "Visualization": [
-        "matplotlib", "plotly", "Streamlit", "ggplot2",
-        "seaborn", "court heatmaps",
+        "matplotlib", "plotly", "Streamlit", "ggplot2", "Recharts", "Canvas API",
+        "Court heatmaps", "PCA scatter plots", "Reliability curves",
     ],
 }
 
@@ -105,20 +99,17 @@ PROJECTS: list[dict[str, Any]] = [
             "across five NBA seasons."
         ),
         "key_features": [
-            "Multi-source ingestion + normalization across 5 NBA seasons",
-            "Schema validation and rerunnable SQLite load/upsert behavior",
-            "xFG logistic regression + GAM with tensor product spatial surface",
-            "Shot Difficulty Index (SDI) feature layer for difficulty modeling",
-            "GMM player archetype clustering with BIC selection and PCA projection",
+            "ESPN + NBA Stats ingestion with parallel collection and exponential backoff",
+            "Schema validation and rerunnable SQLite upsert behavior",
+            "xFG logistic regression + GAM tensor surface modeling",
+            "Shot Difficulty Index feature engineering",
+            "GMM player archetypes with BIC selection and PCA projection",
         ],
-        "tech_stack": [
-            "R", "Python", "scikit-learn", "PyGAM", "SQLite",
-            "Streamlit", "matplotlib", "pandas",
-        ],
+        "tech_stack": ["R", "Python", "scikit-learn", "PyGAM", "SQLite", "Streamlit"],
         "metrics": {
-            "xFG Accuracy": "62.7%",
-            "Training shots": "1.1M+",
-            "Eval shots": "~136K",
+            "xFG Holdout": "62.7%",
+            "Training Shots": "1.1M+",
+            "Evaluation Shots": "~136K",
             "Players": "467",
             "Seasons": "5",
         },
@@ -127,24 +118,21 @@ PROJECTS: list[dict[str, Any]] = [
         "name": "AI Multitool Assistant",
         "tag": "ai-multitool",
         "description": (
-            "Full-stack AI web application with chat, PDF Q&A, and real-time data tools. "
-            "Two-service architecture with JWT authentication and Gemini 2.5-Flash via a "
-            "LlamaIndex ReAct agent."
+            "Full-stack AI web application with chat, PDF Q&A, and real-time tools. "
+            "Two-service architecture with JWT authentication and Gemini 2.5-Flash via "
+            "a LlamaIndex ReAct agent."
         ),
         "key_features": [
-            "ReAct-style chat agent powered by Gemini 2.5-Flash via LlamaIndex",
-            "PDF upload + BAAI/bge-small-en-v1.5 embeddings for vector search",
-            "5 real-time tool modules: stocks, crypto, weather, news, market",
-            "JWT auth with 30-min access tokens and automatic refresh rotation",
-            "7 REST API endpoints with user-scoped data models",
+            "Gemini 2.5-Flash + LlamaIndex ReAct orchestration",
+            "RAG pipeline for PDF parsing, indexing, and querying",
+            "Five real-time tools: stocks, crypto, weather, news, market",
+            "JWT access and refresh token lifecycle",
+            "User-scoped data isolation for notes, chat, and PDF indexes",
         ],
-        "tech_stack": [
-            "Django REST", "React 18", "Vite", "JWT",
-            "Gemini", "LlamaIndex", "HuggingFace",
-        ],
+        "tech_stack": ["Django REST", "React 18", "Vite", "JWT", "Gemini", "LlamaIndex"],
         "metrics": {
-            "API tools": "5",
-            "Endpoints": "7+",
+            "API Tools": "5",
+            "REST Endpoints": "7+",
             "Architecture": "2-service",
         },
     },
@@ -152,100 +140,172 @@ PROJECTS: list[dict[str, Any]] = [
         "name": "ESPN NBA Data Pipeline",
         "tag": "nba-data",
         "description": (
-            "R package for end-to-end ESPN NBA data collection, parsing, validation, "
-            "and storage. Handles 1,000+ games per season with parallel collection and "
-            "exponential backoff retry logic."
+            "R package for end-to-end ESPN NBA data collection, parsing, validation, and storage. "
+            "Handles 1,000+ games per season with parallel collection and exponential backoff retry logic."
         ),
         "key_features": [
-            "Complete pipeline: ESPN API JSON \u2192 parsing \u2192 schema validation \u2192 storage",
-            "Parallel game collection via future::multisession with retry logic",
-            "4 core tables: games, team_box, player_box, betting lines",
-            "SQLite with composite primary keys, schema versioning, upsert strategy",
-            "13 testthat test files using saved JSON fixtures",
+            "Phase-based pipeline: collection, inventory, parsing, quality",
+            "Parallel collection via future::multisession",
+            "Schema enforcement with explicit type casting",
+            "SQLite upserts with schema versioning via nbadata_meta",
+            "Fixture-based tests with optional live-gated integration tests",
         ],
-        "tech_stack": [
-            "R", "dplyr", "httr2", "DBI", "RSQLite",
-            "testthat", "future", "jsonlite",
-        ],
+        "tech_stack": ["R", "httr2", "DBI", "RSQLite", "future", "testthat"],
         "metrics": {
-            "Games/season": "1,000+",
-            "Test files": "13",
-            "Core tables": "4",
+            "Games/Season": "1,000+",
+            "Test Files": "13",
+            "Core Tables": "4",
+            "Retry Attempts": "5",
         },
     },
     {
         "name": "NAU Course Catalog Scraper",
         "tag": "nau-scraper",
         "description": (
-            "Automated web scraping and AI curriculum analysis pipeline built with IAAAI "
-            "collaboration. Scraped 12,944 course records across Fall 2025 and Spring 2026 "
-            "with a 3-tier classification system."
+            "Automated web scraping and AI curriculum analysis pipeline. Scraped 12,944 course "
+            "records across Fall 2025 and Spring 2026 with a three-tier classification system."
         ),
         "key_features": [
-            "Selenium scraper across 150+ prefixes and 2 academic terms",
-            "Prefix extraction from NAU PDF via pdfplumber",
-            "3-tier AI classification: high-precision, high-recall, and ethics analysis",
-            "Fuzzy string matching via thefuzz for typo-tolerant detection",
-            "R Markdown report with precision-versus-recall framing",
+            "PDF prefix extraction with pdfplumber",
+            "Selenium browser automation with resumable crawl states",
+            "Three analysis scripts: high-precision, broad recall, and ethics",
+            "Fuzzy string matching for typo-tolerant detection",
+            "CSV exports and R Markdown reporting for precision/recall tradeoffs",
         ],
-        "tech_stack": [
-            "Python", "Selenium", "pdfplumber", "pandas",
-            "thefuzz", "R Markdown",
-        ],
+        "tech_stack": ["Python", "Selenium", "pdfplumber", "pandas", "thefuzz", "R Markdown"],
         "metrics": {
             "Courses": "12,944",
             "Prefixes": "150+",
             "Terms": "2",
+            "Analysis Tiers": "3",
         },
     },
     {
         "name": "NBA Win Probability Models",
         "tag": "nba-modeling",
         "description": (
-            "Leakage-aware predictive modeling for NBA home-team win probability using "
-            "rolling window features across 2002\u20132025 seasons."
+            "Leakage-aware predictive modeling for NBA home-team win probability using rolling "
+            "window features across 2002-2025 seasons."
         ),
         "key_features": [
-            "Rolling window features (3/5/10-game lookbacks) with lag-1 leakage prevention",
-            "Possession-based advanced stats: eFG%, TS%, ORtg, DRtg, net rating",
-            "Model comparison: logistic, ridge, elastic net, random forest",
-            "Elo rating system (season-reset and all-time variants)",
-            "Chronological train/test split preserving temporal ordering",
+            "Rolling 3/5/10-game windows with lag-1 leakage prevention",
+            "Advanced stats and matchup differential feature engineering",
+            "Ridge, elastic net, logistic, and random forest model comparison",
+            "Elo features with season-reset and all-time variants",
+            "Chronological train/test split preserving temporal order",
         ],
-        "tech_stack": [
-            "R", "glmnet", "pROC", "ggplot2",
-            "slider", "hoopR",
-        ],
+        "tech_stack": ["R", "glmnet", "pROC", "randomForest", "slider", "hoopR"],
         "metrics": {
-            "Accuracy": "67%",
-            "AUC": "0.684",
+            "Best Accuracy": "67%",
+            "Best AUC": "0.684",
             "Baseline": "59.2%",
-            "Seasons": "2002\u20132025",
+            "Seasons": "2002-2025",
         },
     },
     {
         "name": "Deep Learning Projects",
         "tag": "deep-learning",
         "description": (
-            "Four progressive deep learning projects (Spring 2026 coursework): feedforward "
-            "networks, hyperparameter optimization, CNNs with filter visualization, and "
-            "RNNs with custom tokenizers."
+            "Four progressive deep learning projects covering ANN baselines, hyperparameter "
+            "optimization, CNN interpretation, and RNN sequence modeling."
         ),
         "key_features": [
-            "ANN: Training loops, loss computation, data loading pipelines",
-            "HPO: Grid/random search with Weights & Biases experiment tracking",
-            "CNN: Filter visualization for understanding learned features",
-            "RNN: Custom tokenizer for sequence preprocessing and analysis",
-            "Shared seed management utilities for reproducibility",
+            "ANN project with custom training loops",
+            "Grid/random hyperparameter optimization with W&B",
+            "CNN filter visualization workflow",
+            "RNN modeling with a custom tokenizer",
+            "Reproducible shared infrastructure across project modules",
         ],
-        "tech_stack": [
-            "PyTorch", "TorchVision", "scikit-learn",
-            "Weights & Biases", "Conda",
-        ],
+        "tech_stack": ["PyTorch", "TorchVision", "scikit-learn", "Weights & Biases", "pytest"],
         "metrics": {
             "Projects": "4",
             "Framework": "PyTorch",
             "Tracking": "W&B",
+        },
+    },
+    {
+        "name": "NBA Analytics Platform",
+        "tag": "nba-app",
+        "description": (
+            "Freemium NBA analytics platform with dashboards, AI-style Q&A over NBA data, "
+            "Stripe billing, and production-grade security hardening."
+        ),
+        "key_features": [
+            "Fastify + TypeScript backend with intent-driven Q&A",
+            "Next.js 14 App Router frontend with feature gating",
+            "Stripe checkout and webhook subscription flow",
+            "Security stack: JWT, Zod safeParse, hashing, rate limiting",
+            "Redis caching with Lua scripts and performance optimizations",
+        ],
+        "tech_stack": ["TypeScript", "Fastify", "Next.js", "Prisma", "PostgreSQL", "Redis"],
+        "metrics": {
+            "Tests Passing": "69",
+            "Security Grade": "A+",
+            "Test Files": "25",
+            "Backend Fixes": "17/17",
+        },
+    },
+    {
+        "name": "NAU Capstone: Sports Expected Points Analysis",
+        "tag": "nau-capstone",
+        "description": (
+            "Research capstone analyzing expected points/goals across NBA and NHL with shot-quality "
+            "modeling, calibration diagnostics, and player value analysis."
+        ),
+        "key_features": [
+            "xFG logistic regression and POE computation pipeline",
+            "GAM tensor surface modeling with partial dependence diagnostics",
+            "GMM archetypes with BIC selection and PCA projection",
+            "Shot Difficulty Index and residual analysis",
+            "POE per million salary value rankings",
+        ],
+        "tech_stack": ["Python", "scikit-learn", "PyGAM", "Streamlit", "plotly", "matplotlib"],
+        "metrics": {
+            "Players Profiled": "467",
+            "Data Sources": "3",
+            "Sports": "NBA + NHL",
+        },
+    },
+    {
+        "name": "NBA Dockerized Scrape Pipeline",
+        "tag": "scrape-pipeline",
+        "description": (
+            "Production-grade Python/Docker pipeline for high-volume NBA data ingestion into "
+            "PostgreSQL with idempotent upsert behavior."
+        ),
+        "key_features": [
+            "concurrent.futures parallel HTTP fetching",
+            "Chunked SQLAlchemy ON CONFLICT DO UPDATE upserts",
+            "Complex ESPN JSON normalization to relational tables",
+            "Failure-stage tracking through nba_ingest_failures",
+            "Makefile automation for ingest/reset/up/down",
+        ],
+        "tech_stack": ["Python", "Docker", "PostgreSQL", "SQLAlchemy", "pandas", "Makefile"],
+        "metrics": {
+            "Database": "PostgreSQL 16",
+            "Automation": "Makefile",
+            "Architecture": "Dockerized",
+        },
+    },
+    {
+        "name": "Stuxnet Cyberwarfare Analysis",
+        "tag": "stuxnet-analysis",
+        "description": (
+            "Technical cybersecurity analysis of Stuxnet covering propagation, zero-days, PLC "
+            "targeting, sensor spoofing, and critical infrastructure impact."
+        ),
+        "key_features": [
+            "Analysis of four simultaneous zero-day exploits",
+            "Code-signing abuse via stolen certificates",
+            "Siemens S7-315 PLC hardware targeting and fingerprinting",
+            "Man-in-the-middle PLC manipulation and sensor spoofing",
+            "Impact comparison against WannaCry and NotPetya",
+        ],
+        "tech_stack": ["R Markdown", "LaTeX", "ICS/SCADA security", "Exploit analysis"],
+        "metrics": {
+            "Zero-Days": "4",
+            "Attribution": "Operation Olympic Games",
+            "Output": "Rmd + PDF",
         },
     },
 ]
@@ -290,15 +350,18 @@ AI_COURSES: list[dict[str, str]] = [
 KEY_METRICS: list[dict[str, str]] = [
     {"label": "xFG Holdout Accuracy", "value": "62.7%", "source": "spatialSportsR"},
     {"label": "xFG Training Shots", "value": "1.1M+", "source": "spatialSportsR"},
-    {"label": "Courses Scraped", "value": "12,944", "source": "nau_course_scraping"},
     {"label": "Win Model Accuracy", "value": "67%", "source": "nba-modeling"},
     {"label": "Win Model AUC", "value": "0.684", "source": "nba-modeling"},
-    {"label": "NBA Seasons Modeled", "value": "2002\u20132025", "source": "nba-modeling"},
+    {"label": "NBA Seasons Modeled", "value": "2002-2025", "source": "nba-modeling"},
+    {"label": "Courses Scraped", "value": "12,944", "source": "nau_course_scraping"},
+    {"label": "Course Prefixes Crawled", "value": "150+", "source": "nau_course_scraping"},
+    {"label": "NBA_APP Tests Passing", "value": "69", "source": "nba-app"},
+    {"label": "NBA_APP Security Grade", "value": "A+", "source": "nba-app"},
     {"label": "R Package Test Files", "value": "13", "source": "nba-data"},
     {"label": "API Tools Integrated", "value": "5", "source": "ai-multitool"},
-    {"label": "REST Endpoints", "value": "7+", "source": "ai-multitool"},
-    {"label": "Bootstrap Resamples", "value": "100,000", "source": "sta478"},
+    {"label": "REST Endpoints Built", "value": "7+", "source": "ai-multitool"},
     {"label": "Players Profiled", "value": "467", "source": "spatialSportsR"},
+    {"label": "Bootstrap Resamples", "value": "100,000", "source": "sta478"},
 ]
 
 CASE_STUDIES: list[dict[str, Any]] = [
@@ -306,116 +369,190 @@ CASE_STUDIES: list[dict[str, Any]] = [
         "project": "NBA Shot Data Engineering Package",
         "role": "Data engineer and modeling workflow builder",
         "challenge": (
-            "Create a repeatable multi-source shot-data pipeline that supports downstream modeling, "
-            "player archetype discovery, and visual analysis without schema drift issues."
+            "Create a repeatable multi-source shot-data pipeline that supports stable downstream "
+            "modeling and archetype analysis without schema drift."
         ),
         "process": [
-            "Ingested and merged 1.1M+ shots across 5 NBA seasons from multiple sources",
-            "Standardized schema and validation checks before model features were generated",
-            "Built rerunnable load behavior in SQLite to keep analytics tables stable",
-            "Engineered xFG/residual/difficulty features for GAM and clustering workflows",
-            "Developed Streamlit dashboard with daily automated refresh via launchd",
+            "Ingested and merged 1.1M+ shots across five seasons from multiple sources",
+            "Applied schema contracts and validation before feature generation",
+            "Implemented rerunnable SQLite load/upsert behavior for repeatable refreshes",
+            "Engineered xFG, residual, and SDI features for GAM and clustering workflows",
         ],
         "outcomes": [
-            "xFG shot-make classifier reached 62.7% holdout accuracy",
-            "Consistent feature layer for shot-quality and player-value analysis",
-            "PCA/archetype outputs and residual plots suitable for portfolio storytelling",
-            "Salary-adjusted POE/$M value efficiency metrics for 467 players",
+            "xFG model reached 62.7% holdout accuracy",
+            "Generated stable feature layers for shot-quality and value analysis",
+            "Delivered interpretable archetype visuals and residual diagnostics",
         ],
     },
     {
         "project": "AI Multitool Assistant",
         "role": "Full-stack developer and AI integration lead",
         "challenge": (
-            "Build one assistant experience that combines authenticated chat, PDF Q&A, "
-            "and real-time market/weather/news tools without turning the UI into separate silos."
+            "Unify chat, PDF Q&A, and real-time external tools into one secure workflow with "
+            "consistent authentication and data isolation."
         ),
         "process": [
-            "Split the app into a React/Vite frontend and Django REST backend",
-            "Implemented JWT auth with 30-min access tokens and refresh rotation",
-            "Integrated Gemini via LlamaIndex ReAct agent with up to 10 reasoning iterations",
-            "Added PDF upload and indexing flow for document-grounded querying",
+            "Split system into React/Vite frontend and Django REST backend",
+            "Implemented JWT access and refresh token lifecycle",
+            "Integrated Gemini via LlamaIndex ReAct with tool orchestration",
+            "Built PDF index persistence and lazy query loading",
         ],
         "outcomes": [
-            "Single app flow for chat, documents, and tools with consistent auth",
-            "Composable backend endpoint surface for iterative feature additions",
-            "Clear separation between frontend UX and backend orchestration logic",
+            "Single user workflow for chat, docs, and tools",
+            "Composable API surface for fast feature iteration",
+            "Reliable user-scoped data separation across notes and history",
         ],
     },
     {
         "project": "ESPN NBA Data Pipeline",
         "role": "R package developer and data pipeline architect",
         "challenge": (
-            "Build a robust, testable R package that ingests 1,000+ NBA games per season "
-            "from ESPN APIs with graceful error handling and schema enforcement."
+            "Build a robust R package that can ingest and validate 1,000+ games per season with "
+            "graceful failure handling."
         ),
         "process": [
-            "Designed parallel collection via future::multisession with configurable workers",
-            "Implemented exponential backoff retry logic with 403/429 detection",
-            "Built schema enforcement with janitor::clean_names and explicit type casting",
-            "Created manifest system to detect missing/postponed/canceled games",
+            "Implemented parallel collection wrappers with retry logic",
+            "Created manifest checks for missing, postponed, and canceled games",
+            "Enforced schema maps and type-casting contracts",
+            "Built idempotent upsert tables and migration hooks",
         ],
         "outcomes": [
-            "4 core parsed tables with composite primary keys and schema versioning",
-            "13 testthat test files using saved JSON fixtures (no live API dependency)",
-            "Upsert strategy enabling incremental season updates without duplicates",
+            "Produced four stable parsed core tables",
+            "Established 13 fixture-based tests without live API dependency",
+            "Enabled repeatable incremental updates without duplicate rows",
         ],
     },
     {
         "project": "NAU Course Catalog Scraper",
-        "role": "Scraper and analysis pipeline developer",
+        "role": "Scraper and curriculum-analysis pipeline developer",
         "challenge": (
-            "Audit AI and ethics coverage across NAU courses where catalog content is spread "
-            "across term pages and prefix sources with inconsistent coverage."
+            "Audit AI and ethics course coverage where catalog data is distributed across term pages, "
+            "prefix lists, and inconsistent page structures."
         ),
         "process": [
-            "Extracted and maintained course prefixes from PDF plus manual missing-prefix review",
-            "Built Selenium scrape flow with headless/non-headless and overwrite/incremental modes",
-            "Logged empty/error prefixes and preserved term-level metadata for traceability",
-            "Separated high-precision AI analysis, broad candidate search, and ethics analysis scripts",
+            "Extracted prefixes from PDF and maintained reusable prefix lists",
+            "Built Selenium crawl flow with resumability and empty-prefix logging",
+            "Separated analysis into precision, broad recall, and ethics scripts",
+            "Exported cleaned CSV outputs and report-ready summaries",
         ],
         "outcomes": [
-            "12,944 course records scraped across 150+ prefixes and 2 academic terms",
-            "Report-ready findings in report.Rmd/report.pdf with precision-versus-recall framing",
-            "Transparent pipeline where each transformation stage is independently inspectable",
+            "Scraped 12,944 records across 150+ prefixes and two terms",
+            "Created transparent precision-vs-recall reporting in R Markdown",
+            "Delivered inspectable stage-by-stage transformation outputs",
         ],
     },
     {
         "project": "NBA Win Probability Models",
         "role": "Statistical modeler and feature engineer",
         "challenge": (
-            "Build win probability models across 23 NBA seasons while preventing temporal "
-            "data leakage that would inflate performance metrics."
+            "Model home-team win probability across 23 seasons while preventing temporal leakage "
+            "that would inflate metrics."
         ),
         "process": [
-            "Engineered rolling window features (3/5/10-game) with lag-1 to prevent leakage",
-            "Computed possession-based advanced stats and matchup differentials",
-            "Integrated Elo rating system as predictive feature (season-reset and all-time)",
-            "Compared logistic, ridge, elastic net, and random forest via 5-fold CV",
+            "Built lagged rolling features across 3/5/10-game windows",
+            "Engineered possession metrics and matchup differential features",
+            "Compared ridge, elastic net, logistic, and random forest models",
+            "Integrated Elo variants and calibrated holdout thresholds",
         ],
         "outcomes": [
-            "Ridge logistic achieved 67% accuracy and 0.684 AUC on holdout (vs 59.2% baseline)",
-            "Chronological train/test split preserving temporal ordering across 2002\u20132025",
-            "Bootstrap-optimized classification thresholds with confidence intervals",
+            "Best ridge model achieved 67% accuracy and 0.684 AUC",
+            "Maintained chronological train/test integrity",
+            "Documented reproducible model comparison workflow",
         ],
     },
     {
         "project": "Deep Learning Projects",
         "role": "Deep learning practitioner and experiment tracker",
         "challenge": (
-            "Complete four progressive DL projects building from basic ANNs to RNNs "
-            "while maintaining reproducibility and tracking experiment results."
+            "Deliver four progressive deep-learning projects while preserving reproducibility "
+            "and making results auditable."
         ),
         "process": [
-            "Built feedforward networks with custom training loops and data pipelines",
-            "Implemented grid/random HPO with model factory pattern and W&B tracking",
-            "Developed CNN with filter visualization utilities for feature interpretation",
-            "Created RNN with custom tokenizer for sequence preprocessing",
+            "Implemented ANN baseline workflows and regression tests",
+            "Built HPO model-factory patterns with W&B experiment tracking",
+            "Developed CNN interpretation through filter visualization",
+            "Implemented RNN sequence pipelines with custom tokenizer",
         ],
         "outcomes": [
-            "Comprehensive DL portfolio covering ANN, CNN, RNN, and hyperparameter optimization",
-            "Reproducible experiments with shared seed management across all projects",
-            "W&B experiment tracking for systematic hyperparameter comparison",
+            "Completed ANN, HPO, CNN, and RNN progression",
+            "Established reproducible training utilities and shared seeds",
+            "Produced tracked experiment outputs for comparison and reporting",
+        ],
+    },
+    {
+        "project": "NBA Analytics Platform",
+        "role": "Full-stack developer and security hardening engineer",
+        "challenge": (
+            "Ship a production-ready freemium analytics platform with secure auth, billing, and "
+            "AI-style Q&A without exposing raw SQL or sensitive internals."
+        ),
+        "process": [
+            "Built Fastify API modules for auth, routes, billing, and Q&A",
+            "Implemented regex-intent Q&A templates to avoid user SQL execution",
+            "Added Stripe checkout and webhook subscription management",
+            "Hardened with JWT policy, Zod validation, rate limits, and Redis caching",
+        ],
+        "outcomes": [
+            "Reached 69 passing tests across 25 files",
+            "Achieved A+ security posture in project audits",
+            "Delivered reliable freemium controls and optimized dashboard UX",
+        ],
+    },
+    {
+        "project": "NAU Capstone: Sports Expected Points Analysis",
+        "role": "Lead analyst and modeling researcher",
+        "challenge": (
+            "Design a multi-sport expected points framework that explains shot quality and value "
+            "while remaining interpretable to both technical and non-technical audiences."
+        ),
+        "process": [
+            "Built xFG and xG workflows with POE and residual diagnostics",
+            "Ran GAM tensor-surface models with PDP interpretation",
+            "Clustered player shot profiles via GMM and PCA",
+            "Combined salary collection with POE per million value rankings",
+        ],
+        "outcomes": [
+            "Produced interpretable cross-sport shot-quality metrics",
+            "Built reusable scripts for calibration, clustering, and value analysis",
+            "Delivered an interactive Streamlit capstone dashboard",
+        ],
+    },
+    {
+        "project": "NBA Dockerized Scrape Pipeline",
+        "role": "Data engineer and ingestion pipeline architect",
+        "challenge": (
+            "Build a Dockerized ingestion system that can rerun safely at scale while preserving "
+            "auditability and failure tracing."
+        ),
+        "process": [
+            "Parallelized HTTP fetches with concurrent.futures",
+            "Mapped variable ESPN JSON schemas into relational structures",
+            "Implemented chunked ON CONFLICT upserts via SQLAlchemy",
+            "Automated operations through Makefile commands and Docker compose",
+        ],
+        "outcomes": [
+            "Established idempotent PostgreSQL ingestion behavior",
+            "Created failure-stage observability through ingest-failure tracking",
+            "Enabled repeatable local and containerized execution workflows",
+        ],
+    },
+    {
+        "project": "Stuxnet Cyberwarfare Analysis",
+        "role": "Cybersecurity researcher and technical writer",
+        "challenge": (
+            "Translate highly technical malware behavior into a rigorous, evidence-based analysis "
+            "that remains readable and academically structured."
+        ),
+        "process": [
+            "Mapped propagation and exploit chain details across four zero-days",
+            "Analyzed certificate abuse and PLC hardware-targeting logic",
+            "Documented attack-vector mechanics and sensor spoofing behavior",
+            "Structured findings in publication-style R Markdown and LaTeX",
+        ],
+        "outcomes": [
+            "Delivered a comprehensive Stuxnet technical report",
+            "Connected exploit mechanics to real-world infrastructure impact",
+            "Showcased cybersecurity depth aligned with minor focus",
         ],
     },
 ]
@@ -423,76 +560,123 @@ CASE_STUDIES: list[dict[str, Any]] = [
 PROJECT_BUILD_NOTES: list[dict[str, Any]] = [
     {
         "project": "NBA Shot Data Engineering Package",
-        "focus": "SQLite-backed multi-source shot modeling and clustering pipeline.",
+        "focus": "SQLite-backed multi-source shot modeling and archetype workflow.",
         "notes": [
-            "Ingests shot and context data from multiple sources and seasons into SQLite",
-            "Normalizes schema and validates integrity before downstream modeling",
-            "Uses rerunnable load/upsert behavior to keep SQLite tables stable",
-            "Builds xFG, residual, and shot-difficulty feature layers",
-            "Runs GAM modeling and clustering workflows for player archetype analysis",
-            "Automates daily refresh via macOS launchd job at 4:00 AM",
+            "Merges ESPN and NBA Stats shot data across seasons",
+            "Applies schema validation before feature generation",
+            "Uses rerunnable SQLite upserts for stable refresh behavior",
+            "Builds xFG, residual, and SDI feature layers for modeling",
+            "Automates daily updates through launchd scheduling",
         ],
         "tech_focus": ["R", "Python", "SQLite", "PyGAM", "scikit-learn", "Streamlit"],
     },
     {
         "project": "AI Multitool Assistant",
-        "focus": "Two-service full-stack AI product with secure API workflows.",
+        "focus": "Two-service AI web product with secure auth and tool orchestration.",
         "notes": [
-            "React/Vite frontend with Django REST backend and JWT auth lifecycle",
-            "Gemini + LlamaIndex orchestration for tool-augmented chat responses",
-            "Document upload/index/query flow for PDF question answering",
-            "Tool modules for stocks, crypto, weather, market data, and news",
-            "User-scoped notes and chat-history endpoints for persistent workspace state",
+            "React/Vite frontend paired with Django REST backend",
+            "JWT token lifecycle with refresh and user-scoped storage",
+            "Gemini + LlamaIndex ReAct tool orchestration",
+            "PDF upload/index/query flow for document-grounded responses",
+            "Tool modules for market data, weather, and news",
         ],
         "tech_focus": ["React", "Vite", "Django REST", "JWT", "Gemini", "LlamaIndex"],
     },
     {
         "project": "ESPN NBA Data Pipeline",
-        "focus": "R package with parallel collection, schema enforcement, and fixture-based tests.",
+        "focus": "R package with parallel collection and schema-safe upsert loading.",
         "notes": [
-            "Parallel game collection via future::multisession with configurable workers",
-            "Exponential backoff retry logic (5 attempts) with 403/429 detection",
-            "4 core tables with composite primary keys and schema versioning via nbadata_meta",
-            "Manifest system compares expected vs scraped games for completeness validation",
-            "13 testthat test files using saved JSON fixtures; optional live integration tests",
+            "Parallel collection wrappers with retry and rate-limit handling",
+            "Schema maps enforce stable typed outputs",
+            "Composite-key upsert strategy for idempotent loads",
+            "Manifest checks verify schedule completeness",
+            "Fixture-based testthat suite covers parse and DB behavior",
         ],
-        "tech_focus": ["R", "devtools", "testthat", "DBI", "RSQLite", "future"],
+        "tech_focus": ["R", "httr2", "DBI", "RSQLite", "future", "testthat"],
     },
     {
         "project": "NAU Course Catalog Scraper",
-        "focus": "Scraping and analysis workflow for curriculum coverage auditing.",
+        "focus": "Selenium + PDF prefix extraction + CSV/report analysis pipeline.",
         "notes": [
-            "Extracts prefixes from the NAU PDF and maintains a reusable prefix list",
-            "Supports headless/non-headless runs plus overwrite/incremental controls",
-            "Writes term-level course rows and empty-prefix audit logs to CSV outputs",
-            "Splits analysis into ai_analysis.py, ai_analysis_broad.py, and ethics_analysis.py",
-            "Summarizes findings in report.Rmd/report.pdf with precision-versus-recall tradeoffs",
+            "Builds prefix inventory from PDF and crawl logs",
+            "Supports resumable Selenium crawl with term-aware outputs",
+            "Runs precision, broad, and ethics analysis scripts separately",
+            "Exports clean CSV artifacts for downstream reporting",
+            "Publishes findings in R Markdown report outputs",
         ],
         "tech_focus": ["Python", "Selenium", "pdfplumber", "pandas", "thefuzz", "R Markdown"],
     },
     {
         "project": "NBA Win Probability Models",
-        "focus": "Leakage-aware predictive modeling with rolling features and model comparison.",
+        "focus": "Leakage-aware modeling with rolling features and reproducible comparisons.",
         "notes": [
-            "Rolling window features (3/5/10-game) with lag-1 to prevent temporal leakage",
-            "Possession-based advanced stats: eFG%, TS%, ORtg, DRtg, net rating, pace",
-            "Matchup differentials (home minus away) and ratio features for all rolling metrics",
-            "Elo rating system integrated as predictive feature (season-reset and all-time)",
-            "Reproducible pipeline: set.seed(42), modular R scripts in execution order",
+            "Builds lagged rolling metrics and matchup differentials",
+            "Compares ridge/elastic/logistic/random forest pipelines",
+            "Integrates Elo variants as predictive signals",
+            "Uses chronological splits to preserve real-world ordering",
+            "Tracks AUC and calibration tradeoffs by model",
         ],
-        "tech_focus": ["R", "glmnet", "pROC", "ggplot2", "slider", "hoopR"],
+        "tech_focus": ["R", "glmnet", "pROC", "randomForest", "slider", "hoopR"],
     },
     {
         "project": "Deep Learning Projects",
-        "focus": "Progressive DL curriculum from ANNs to RNNs with experiment tracking.",
+        "focus": "Progressive deep-learning coursework with reproducible experiment tracking.",
         "notes": [
-            "ANN: Feedforward networks with training loops and data loading pipelines",
-            "HPO: Grid/random search with model factory pattern and W&B experiment tracking",
-            "CNN: Convolutional networks with filter visualization utilities",
-            "RNN: Recurrent networks with custom tokenizer for sequence preprocessing",
-            "Shared utilities module for reproducible seed management across all projects",
+            "ANN baseline modules for data, loss, and training",
+            "HPO loops with grid/random strategies and W&B logging",
+            "CNN interpretation through filter visualization tooling",
+            "RNN sequence modeling with custom tokenizer utilities",
+            "Shared seed controls for reproducibility across projects",
         ],
-        "tech_focus": ["PyTorch", "TorchVision", "scikit-learn", "W&B", "Conda"],
+        "tech_focus": ["PyTorch", "TorchVision", "W&B", "pytest", "Conda"],
+    },
+    {
+        "project": "NBA Analytics Platform",
+        "focus": "Production monorepo with secure API, billing, and high-performance frontend.",
+        "notes": [
+            "Fastify API modules split across auth, billing, Q&A, and routes",
+            "Regex intent mapping prevents direct user SQL execution",
+            "Stripe checkout and webhook flow manages subscriptions",
+            "Zod validation, JWT policy, rate limiting, and sanitization hardening",
+            "Redis and cache-layer optimizations reduce response latency",
+        ],
+        "tech_focus": ["TypeScript", "Fastify", "Next.js", "Prisma", "PostgreSQL", "Redis"],
+    },
+    {
+        "project": "NAU Capstone: Sports Expected Points Analysis",
+        "focus": "Cross-sport expected-points modeling and interpretability toolkit.",
+        "notes": [
+            "xFG/xG modeling scripts for NBA and NHL datasets",
+            "Calibration diagnostics including Brier and reliability curves",
+            "GMM archetype modeling with PCA visualization",
+            "Value analysis combining POE with salary data",
+            "Interactive Streamlit app for presenting capstone findings",
+        ],
+        "tech_focus": ["Python", "scikit-learn", "PyGAM", "Streamlit", "plotly", "matplotlib"],
+    },
+    {
+        "project": "NBA Dockerized Scrape Pipeline",
+        "focus": "Dockerized PostgreSQL ingestion workflow with idempotent upserts.",
+        "notes": [
+            "Parallel fetching stage built with concurrent.futures",
+            "Normalization maps ESPN JSON into relational model tables",
+            "Chunked SQLAlchemy upserts enforce idempotent writes",
+            "nba_ingest_failures table captures pipeline breakpoints",
+            "Makefile commands orchestrate ingest and infrastructure lifecycle",
+        ],
+        "tech_focus": ["Python", "Docker", "PostgreSQL", "SQLAlchemy", "Makefile"],
+    },
+    {
+        "project": "Stuxnet Cyberwarfare Analysis",
+        "focus": "Technical malware research and publication-quality security reporting.",
+        "notes": [
+            "Breaks down propagation via USB/LNK exploit chain",
+            "Analyzes four zero-day exploits and privilege escalation paths",
+            "Documents PLC targeting logic and operational manipulation",
+            "Compares impact context with major cyber incidents",
+            "Publishes full report using R Markdown + LaTeX formatting",
+        ],
+        "tech_focus": ["R Markdown", "LaTeX", "ICS/SCADA", "Exploit analysis", "Technical writing"],
     },
 ]
 
@@ -550,7 +734,6 @@ def build_context(
         "profile": PROFILE,
         "nav_items": NAV_ITEMS,
         "page_title": page_title,
-        "page_class": "dark-theme",
         "active_page": active_page,
         "page_styles": page_styles,
         "page_scripts": page_scripts or [],
@@ -626,7 +809,6 @@ def page_four() -> str:
             page_title="Case Studies",
             active_page="4",
             page_styles=["page1.css"],
-            page_scripts=[],
             case_studies=CASE_STUDIES,
         ),
     )
@@ -640,7 +822,6 @@ def page_five() -> str:
             page_title="Build Notes",
             active_page="5",
             page_styles=["page1.css"],
-            page_scripts=[],
             project_build_notes=PROJECT_BUILD_NOTES,
         ),
     )

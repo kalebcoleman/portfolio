@@ -62,6 +62,26 @@
     --focus-outline: var(--accent-cyan);
 }
 
+[data-theme="light"] {
+    --bg-deep: #f4f7fb;
+    --bg-surface: #ffffff;
+    --bg-elevated: #eef2f7;
+    --bg-card: rgba(255, 255, 255, 0.88);
+    --bg-card-hover: rgba(248, 250, 252, 0.97);
+
+    --border-subtle: rgba(148, 163, 184, 0.38);
+    --border-default: rgba(100, 116, 139, 0.52);
+
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+
+    --glow-cyan: 0 0 16px rgba(0, 153, 204, 0.14);
+    --glow-green: 0 0 16px rgba(46, 125, 50, 0.1);
+    --shadow-card: 0 8px 24px rgba(2, 6, 23, 0.09);
+    --shadow-elevated: 0 12px 32px rgba(2, 6, 23, 0.13);
+}
+
 /* ═══════════════════════════════════════════════════
    Reset & Base
    ═══════════════════════════════════════════════════ */
@@ -106,6 +126,14 @@ img {
         radial-gradient(ellipse at 50% 80%, rgba(57, 211, 83, 0.05), transparent 50%);
 }
 
+[data-theme="light"] .background-aura {
+    opacity: 0.4;
+    background:
+        radial-gradient(ellipse at 10% 15%, rgba(0, 153, 204, 0.12), transparent 56%),
+        radial-gradient(ellipse at 85% 20%, rgba(167, 139, 250, 0.08), transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(57, 211, 83, 0.08), transparent 55%);
+}
+
 /* ═══════════════════════════════════════════════════
    Site Shell
    ═══════════════════════════════════════════════════ */
@@ -135,6 +163,10 @@ img {
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-card);
     animation: rise-in 480ms var(--ease-out);
+}
+
+[data-theme="light"] .site-header {
+    background: rgba(255, 255, 255, 0.88);
 }
 
 .brand-block {
@@ -220,6 +252,39 @@ img {
 }
 
 /* ── Resume Button ── */
+.header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.45rem;
+    height: 2.45rem;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: var(--radius-pill);
+    background: rgba(0, 212, 255, 0.08);
+    color: var(--accent-cyan);
+    cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-out),
+                box-shadow var(--duration-fast) var(--ease-out),
+                background var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle:hover {
+    background: rgba(0, 212, 255, 0.15);
+    box-shadow: var(--glow-cyan);
+    transform: translateY(-1px);
+}
+
+.theme-toggle-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
 .resume-button {
     display: inline-flex;
     align-items: center;
@@ -235,6 +300,17 @@ img {
     background: rgba(0, 212, 255, 0.08);
     transition: all var(--duration-normal) var(--ease-out);
     white-space: nowrap;
+}
+
+[data-theme="light"] .theme-toggle,
+[data-theme="light"] .resume-button {
+    background: rgba(0, 153, 204, 0.1);
+    border-color: rgba(0, 153, 204, 0.35);
+}
+
+[data-theme="light"] .theme-toggle:hover,
+[data-theme="light"] .resume-button:hover {
+    background: rgba(0, 153, 204, 0.18);
 }
 
 .resume-button:hover {
@@ -285,6 +361,48 @@ img {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     margin-top: auto;
+}
+
+[data-theme="light"] .site-footer {
+    background: rgba(255, 255, 255, 0.78);
+}
+
+[data-theme="light"] .nav-link {
+    background: rgba(255, 255, 255, 0.78);
+}
+
+[data-theme="light"] .nav-link:hover {
+    background: rgba(0, 153, 204, 0.08);
+}
+
+[data-theme="light"] .nav-link.is-active {
+    background: rgba(0, 153, 204, 0.14);
+}
+
+[data-theme="light"] .meta-chip,
+[data-theme="light"] .skill-chip,
+[data-theme="light"] .experience-card,
+[data-theme="light"] .metric-card,
+[data-theme="light"] .plot-card,
+[data-theme="light"] .plot-media,
+[data-theme="light"] .build-note-card,
+[data-theme="light"] .p5-module,
+[data-theme="light"] .p5-response {
+    background: rgba(255, 255, 255, 0.86);
+}
+
+[data-theme="light"] .table-shell {
+    background: rgba(255, 255, 255, 0.94);
+}
+
+[data-theme="light"] .table-shell th {
+    background: rgba(0, 153, 204, 0.08);
+}
+
+[data-theme="light"] .stack-chip,
+[data-theme="light"] .project-tag {
+    background: rgba(0, 153, 204, 0.08);
+    border-color: rgba(0, 153, 204, 0.25);
 }
 
 .footer-brand {
@@ -376,6 +494,16 @@ summary:focus-visible {
         justify-content: center;
         text-align: center;
     }
+
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .theme-toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -406,6 +534,19 @@ summary:focus-visible {
         flex-direction: column;
         gap: 0.35rem;
         width: 100%;
+    }
+
+    .header-actions {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .theme-toggle {
+        flex: 0 0 auto;
+    }
+
+    .resume-button {
+        flex: 1 1 auto;
     }
 }
 
