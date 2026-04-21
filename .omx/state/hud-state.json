@@ -1,5 +1,5 @@
 {
-  "last_turn_at": "2026-04-21T00:57:00.686Z",
-  "turn_count": 11,
-  "last_agent_output": "Yes. It now uses the resume you put in `static`.\n\nThe issue was just the filename: the app was servi"
+  "last_turn_at": "2026-04-21T01:00:10.105Z",
+  "turn_count": 12,
+  "last_agent_output": "The 404 is because Azure never got the file. The root cause was [`.gitignore`](/Users/itzjuztmya/Kal"
 }

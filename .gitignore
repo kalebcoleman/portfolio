@@ -22,6 +22,7 @@ output/
 
 *.docx
 *.pdf
+!static/resume.pdf
 
 PORTFOLIO_REFERENCE.md
 resume_reference.md
