@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <p class="eyebrow">Skills</p>
+    <h1>Technical toolkit</h1>
+    <p>
+        Skills are grouped by how I use them in modeling, analysis, engineering, and technical project execution.
+    </p>
+</section>
+
+<section class="skills-grid">
+    {% for group in skills %}
+    <article class="skill-card">
+        <h2>{{ group["name"] }}</h2>
+        <p>{{ group["summary"] }}</p>
+        <div class="stack-list">
+            {% for item in group["items"] %}
+            <span class="chip chip-soft">{{ item }}</span>
+            {% endfor %}
+        </div>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
