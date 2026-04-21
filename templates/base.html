@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ page_description }}">
     <title>{{ profile.name }} | {{ page_title }}</title>
+    <script>
+    (function () {
+        try {
+            var storedTheme = localStorage.getItem("theme");
+            if (storedTheme === "light" || storedTheme === "dark") {
+                document.documentElement.setAttribute("data-theme", storedTheme);
+                return;
+            }
+            if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        } catch (err) {
+            /* no-op */
+        }
+    })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,9 +50,20 @@
                 {% endfor %}
             </nav>
 
-            <a class="resume-link" href="{{ url_for('resume') }}" target="_blank" rel="noopener noreferrer">
-                Resume
-            </a>
+            <div class="header-actions">
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle color theme"
+                    aria-pressed="false"
+                >
+                    <span id="theme-toggle-icon" aria-hidden="true">◐</span>
+                </button>
+                <a class="resume-link" href="{{ url_for('resume') }}" target="_blank" rel="noopener noreferrer">
+                    Resume
+                </a>
+            </div>
         </header>
 
         <main id="main-content" class="site-main">
@@ -55,5 +82,6 @@
             </div>
         </footer>
     </div>
+    <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script>
 </body>
 </html>

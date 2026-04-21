@@ -116,23 +116,6 @@ PROJECTS: list[dict[str, Any]] = [
         "featured": True,
     },
     {
-        "name": "Cross-Sport Shot Quality Analysis",
-        "repo_name": "nau-capstone",
-        "repo_url": "https://github.com/kalebcoleman/nau-capstone",
-        "summary": (
-            "NAU capstone comparing shot difficulty and scoring expectation across the NBA and NHL. "
-            "The repository ties together matched historical datasets, modeling outputs, poster-ready "
-            "figures, and an interactive dashboard companion."
-        ),
-        "stack": ["Python", "Streamlit", "PyGAM", "scikit-learn", "Data visualization"],
-        "highlights": [
-            "Organized a 2014-2024 matched comparison workflow across two sports with reproducible analysis assets.",
-            "Generated poster-supporting figures, model snapshots, and app-ready data for final presentation work.",
-            "Connected technical modeling outputs to a clear research communication surface.",
-        ],
-        "featured": True,
-    },
-    {
         "name": "NAU Course Catalog Scraper",
         "repo_name": "nau-course-scraping",
         "repo_url": "https://github.com/kalebcoleman/nau-course-scraping",
@@ -147,7 +130,7 @@ PROJECTS: list[dict[str, Any]] = [
             "Supports focused AI-course detection, broader recall analysis, and ethics-oriented reporting flows.",
             "Designed as a reproducible data collection and reporting workflow rather than a one-off scraper.",
         ],
-        "featured": True,
+        "featured": False,
     },
     {
         "name": "Image Reconstruction and Generative Modeling",
@@ -156,13 +139,13 @@ PROJECTS: list[dict[str, Any]] = [
         "summary": (
             "Research-style image reconstruction training project for MNIST-family datasets, covering "
             "autoencoders, denoising autoencoders, variational autoencoders, and diffusion models. "
-            "The training pipeline is built for reproducibility and shared compute environments."
+            "The training pipeline is built for reproducibility, Slurm workflows, and GPU-backed HPC execution."
         ),
-        "stack": ["Python", "PyTorch", "Diffusion", "Autoencoders", "Slurm", "Experiment management"],
+        "stack": ["Python", "PyTorch", "Diffusion", "GPU training", "Slurm", "HPC workflows"],
         "highlights": [
             "Supports multiple model families from a single CLI with isolated outputs and saved run configuration.",
-            "Adds Slurm-safe dataset handling and run-directory isolation for cleaner HPC experimentation.",
-            "Includes reproducible parameter sweep patterns for diffusion experiments.",
+            "Includes Slurm-safe dataset handling, run isolation, and GPU-oriented experiment workflows for shared compute environments.",
+            "Covers diffusion experiments, autoencoder baselines, and reproducible parameter sweeps for model comparison.",
         ],
         "featured": True,
     },
@@ -181,22 +164,22 @@ PROJECTS: list[dict[str, Any]] = [
             "Provides both a GUI surface and a headless arena for AI-vs-AI benchmarking.",
             "Supports multiple board sizes and configurable per-move search budgets.",
         ],
-        "featured": False,
+        "featured": True,
     },
     {
-        "name": "Leakage-Aware NBA Outcome Modeling",
-        "repo_name": "nba-modeling",
-        "repo_url": "https://github.com/kalebcoleman/nba-modeling",
+        "name": "AI Multitool Assistant",
+        "repo_name": "ai-multitool-assistant",
+        "repo_url": "https://github.com/kalebcoleman/ai-multitool-assistant",
         "summary": (
-            "Predictive modeling workflow for NBA home-win probability using rolling performance "
-            "features and time-aware evaluation. The project emphasizes leakage control, reproducible "
-            "feature engineering, and interpretable predictive baselines."
+            "Full-stack AI application that combines chat, PDF question answering, notes, and real-time "
+            "tool integrations in one authenticated workflow. It extends the portfolio beyond modeling "
+            "into practical AI product engineering."
         ),
-        "stack": ["R", "glmnet", "randomForest", "Predictive modeling", "Bootstrap", "Time-series features"],
+        "stack": ["Django REST", "React", "JWT", "Gemini", "LlamaIndex", "RAG"],
         "highlights": [
-            "Uses final-season holdout evaluation to preserve time ordering and avoid leakage in model assessment.",
-            "Combines inferential and predictive workflows, including cross-validation and bootstrap summaries.",
-            "Frames model quality with accuracy and AUC outputs rather than relying on a single metric.",
+            "Connects a React frontend and Django backend around authenticated AI workflows and user-scoped data.",
+            "Supports PDF indexing and question answering alongside real-time tools such as weather, stocks, and news.",
+            "Shows end-to-end application design in addition to modeling-oriented repository work.",
         ],
         "featured": False,
     },
@@ -225,27 +208,28 @@ EXPERIENCE: list[dict[str, str]] = [
 
 RESEARCH_ITEMS: list[dict[str, str]] = [
     {
-        "title": "NAU Data Science Capstone",
+        "title": "Research-facing portfolio direction",
         "summary": (
-            "Developed a cross-sport research workflow linking shot-quality modeling, interpretable visuals, "
-            "and presentation-ready outputs for final capstone delivery."
+            "Current work emphasizes machine learning, diffusion and deep learning experiments, data engineering, "
+            "game AI, and technical projects that fit research labs, robotics-adjacent AI, and graduate preparation."
         ),
     },
     {
-        "title": "Modeling and Analytics Focus",
+        "title": "Private-data project timing",
         "summary": (
-            "Current project direction centers on machine learning, deep learning, generative modeling, "
-            "sports analytics, and autonomous decision systems."
+            "A larger applied project will be added after May 8 once the underlying private data can be discussed "
+            "safely. Until then, the portfolio only references the scale and outcome, not the protected dataset itself."
         ),
     },
 ]
 
 AWARDS: list[dict[str, str]] = [
     {
-        "title": "DataFest award-winning analytics project",
+        "title": "Visualization award-winning analytics project",
         "summary": (
-            "Included as a portfolio highlight for collaborative analytics and data storytelling work. "
-            "Shown here as experience and recognition rather than a linked GitHub repository."
+            "Recognized for collaborative analytics and data storytelling on a project built from millions of rows. "
+            "The underlying data remains private until May 8, so the site intentionally mentions the award and scale "
+            "without disclosing the protected subject matter."
         ),
     }
 ]

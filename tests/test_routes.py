@@ -55,13 +55,14 @@ class PortfolioRouteTests(unittest.TestCase):
                 self.assertTrue(response.headers["Location"].endswith(target))
 
     def test_curated_content_is_exposed(self) -> None:
-        self.assertEqual(len(PROJECTS), 6)
+        self.assertEqual(len(PROJECTS), 5)
         self.assertEqual(len(SKILLS), 4)
 
         projects_page = self.client.get("/projects")
         self.assertEqual(projects_page.status_code, 200)
         self.assertIn(b"NBA Shot Data Engineering Package", projects_page.data)
         self.assertIn(b"Image Reconstruction and Generative Modeling", projects_page.data)
+        self.assertIn(b"AI Multitool Assistant", projects_page.data)
         self.assertNotIn(b"Build Notes Across Portfolio Projects", projects_page.data)
 
     def test_navigation_and_resume_action_present(self) -> None:
