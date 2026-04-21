@@ -31,6 +31,7 @@ The Projects page is curated around strong public repositories instead of listin
 - [app.py](/Users/itzjuztmya/Kaleb/portfolio/app.py)
 - [templates/](/Users/itzjuztmya/Kaleb/portfolio/templates)
 - [static/css/base.css](/Users/itzjuztmya/Kaleb/portfolio/static/css/base.css)
+- [static/resume.pdf](/Users/itzjuztmya/Kaleb/portfolio/static/resume.pdf)
 - [tests/test_routes.py](/Users/itzjuztmya/Kaleb/portfolio/tests/test_routes.py)
 
 ## Run Locally

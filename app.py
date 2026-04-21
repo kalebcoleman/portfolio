@@ -26,12 +26,13 @@ PROFILE: dict[str, str] = {
     "phone": "480-359-8122",
     "linkedin_url": "https://linkedin.com/in/kaleb-coleman-a1807a284",
     "github_url": "https://github.com/kalebcoleman",
-    "resume_url": "https://docs.google.com/document/d/1Vox1f_4pb3lWcYDWgTEYG1koPp9b1vb4VD6p2ZpMkpQ/edit?usp=sharing",
     "site_description": (
         "Kaleb Coleman portfolio featuring machine learning, AI, data science, and research-focused "
         "technical projects."
     ),
 }
+
+RESUME_FILE = "resume.pdf"
 
 NAV_ITEMS: list[dict[str, Any]] = [
     {"label": "Home", "endpoint": "home"},
@@ -356,7 +357,7 @@ def contact() -> str:
 
 @app.get("/resume")
 def resume() -> Any:
-    return redirect(PROFILE["resume_url"])
+    return redirect(url_for("static", filename=RESUME_FILE))
 
 
 @app.get("/1")

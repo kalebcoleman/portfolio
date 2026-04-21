@@ -34,10 +34,10 @@ class PortfolioRouteTests(unittest.TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertTrue(response.headers["Location"].endswith("/home"))
 
-    def test_resume_redirects_to_external_document(self) -> None:
+    def test_resume_redirects_to_repo_pdf(self) -> None:
         response = self.client.get("/resume", follow_redirects=False)
         self.assertEqual(response.status_code, 302)
-        self.assertIn("docs.google.com", response.headers["Location"])
+        self.assertTrue(response.headers["Location"].endswith("/static/resume.pdf"))
 
     def test_legacy_routes_redirect_to_new_pages(self) -> None:
         redirect_targets = {
