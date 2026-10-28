@@ -43,7 +43,8 @@ NAV_ITEMS: list[dict[str, Any]] = [
 ]
 
 SKILLS: list[dict[str, Any]] = [
-    {"name": "Robotics / Control", "summary": "Tools used in current simulation research and control experiments.", "items": ["NVIDIA Isaac Sim", "MuJoCo", "USD scene authoring", "Inverse kinematics", "Bimanual manipulation", "Model predictive control", "System identification", "Simulation validation"]},
+    {"name": "Cybersecurity", "summary": "Enterprise security experience supporting a tribal government environment.", "items": ["Endpoint security", "Network threat monitoring", "SaaS security", "Phishing defense", "Secure remote support"], "evidence_label": "View professional experience", "evidence_url": "/experience"},
+    {"name": "Robotics / Control", "summary": "Tools used in current simulation research and control experiments.", "items": ["NVIDIA Isaac Sim", "MuJoCo", "USD scene authoring", "Inverse kinematics", "Bimanual manipulation", "Model predictive control", "System identification", "Simulation validation"], "evidence_label": "Explore robotics projects", "evidence_url": "/projects#research"},
     {
         "name": "Languages",
         "summary": "Core programming languages used across modeling, data pipelines, and application work.",
@@ -51,6 +52,7 @@ SKILLS: list[dict[str, Any]] = [
     },
     {
         "name": "ML / AI",
+        "evidence_label": "See image reconstruction", "evidence_url": "https://github.com/kalebcoleman/ImageReconstruction",
         "summary": "Modeling and experimentation tools for predictive analytics, deep learning, and generative work.",
         "items": [
             "PyTorch",
@@ -67,6 +69,7 @@ SKILLS: list[dict[str, Any]] = [
     },
     {
         "name": "Data / Databases",
+        "evidence_label": "See sports data engineering", "evidence_url": "https://github.com/kalebcoleman/spatialSportsR",
         "summary": "Data collection, validation, storage, and reproducible analysis workflows.",
         "items": [
             "pandas",
@@ -107,6 +110,15 @@ PROJECTS: list[dict[str, Any]] = [
         "summary": "RISE Lab research on two opposing UR5e arms with RG2 grippers manipulating a shared bar in NVIDIA Isaac Sim 5.1. Includes a reproducible motion demonstration and documented experimental evidence.",
         "stack": ["Python", "NVIDIA Isaac Sim", "USD", "Inverse kinematics"],
         "highlights": ["Added collision validation, joint-frame corrections, object-space goals, and per-arm inverse kinematics.", "The accepted 26-second simulation recorded four-finger contact at every measured sample, zero unexpected collisions, and maximum position tracking error of 2.02 mm.", "Documented load and speed experiments, failure cases, and reconstruction instructions. Physical calibration remains future work."],
+        "featured": True,
+    },
+    {
+        "name": "Energy-Aware Quadrotor Control",
+        "repo_name": "Collaborative research · private repository",
+        "repo_url": None,
+        "summary": "Collaborative research with John Lok on prescribed-time quadrotor control using an S500-based MuJoCo test bench. Results are simulation-based; hardware flight validation remains future work.",
+        "stack": ["MuJoCo", "Control", "System identification", "Simulation"],
+        "highlights": ["Built reproducible simulation comparisons and saved-output baselines for tracking, motor lag, and drag studies.", "Added solver timing diagnostics and contributed to a paper draft; physical calibration and flight testing remain future work."],
         "featured": True,
     },
     {
@@ -197,6 +209,7 @@ PROJECTS: list[dict[str, Any]] = [
 ]
 
 EXPERIENCE: list[dict[str, str]] = [
+    {"title": "Information Systems Security Analyst Intern", "organization": "Gila River Indian Community", "period": "June 2026 - Present", "summary": "Support endpoint and mobile security, network threat monitoring, SaaS security, phishing defense, and secure remote troubleshooting. Work involves highly confidential information in a tribal government environment supporting government agency operations."},
     {
         "title": "Website Audience Analysis Project",
         "organization": "The Career Accelerator — The GRAMMYs Project",
@@ -221,7 +234,7 @@ RESEARCH_ITEMS = [
     {"title": "Two-arm manipulation in NVIDIA Isaac Sim", "summary": "RISE Lab simulation research with opposing UR5e arms and RG2 grippers holding a shared bar. Work includes collision validation, joint-frame corrections, inverse kinematics, and coordinated-motion experiments. The current model is a simulation; physical digital-twin calibration is ongoing."},
     {"title": "Energy-aware prescribed-time quadrotor control", "summary": "Collaborating with John Lok on an S500-based MuJoCo test bench, studying tracking deadlines, motor lag, drag, wind estimation, and system identification. Results are simulation-based; hardware validation remains future work."},
 ]
-AWARDS = [{"title": "Best Visualization — NAU ASA DataFest 2026", "summary": "Recognized for collaborative data analysis and visual storytelling during the 48-hour competition."}]
+AWARDS = [{"title": "Best Visualization — NAU ASA DataFest 2026", "summary": "Built models, engineered features, and visualized early signals of high healthcare utilization with a team during the 48-hour competition. The award included a one-year American Statistical Association membership."}]
 EDUCATION = {"school": "Arizona State University", "program": "M.S. Artificial Intelligence Engineering (Robotics)", "details": "Previously: B.S. Data Science, Cybersecurity minor, Northern Arizona University (May 2026)", "timeline": "Expected master's completion: May 2028"}
 
 CONTACT_METHODS: list[dict[str, str]] = [

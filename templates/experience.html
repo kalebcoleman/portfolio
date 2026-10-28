@@ -50,6 +50,7 @@
         <div class="timeline-item">
             <h3>{{ award.title }}</h3>
             <p>{{ award.summary }}</p>
+            <figure><img src="{{ url_for('static', filename='images/datafest-result.png') }}" alt="DataFest presentation slide visualizing concentrated healthcare encounters and early-risk model results" style="width:100%;height:auto;border-radius:12px"><figcaption>DataFest 2026 presentation: healthcare utilization and early-risk modeling.</figcaption></figure>
         </div>
         {% endfor %}
     </article>
