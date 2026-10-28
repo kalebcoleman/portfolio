@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 PROFILE: dict[str, str] = {
     "name": "Kaleb Coleman",
+    "email": "kaleb.a.coleman@gmail.com",
+    "phone": "480-359-8122",
     "headline": "AI Engineering (Robotics) at ASU · Simulation, Control, and Machine Learning",
     "intro": (
         "I am an M.S. AI Engineering (Robotics) student at ASU, doing research with the RISE Lab. My work connects machine learning, deep learning, data "
@@ -223,6 +225,8 @@ AWARDS = [{"title": "Best Visualization — NAU ASA DataFest 2026", "summary": "
 EDUCATION = {"school": "Arizona State University", "program": "M.S. Artificial Intelligence Engineering (Robotics)", "details": "Previously: B.S. Data Science, Cybersecurity minor, Northern Arizona University (May 2026)", "timeline": "Expected master's completion: May 2028"}
 
 CONTACT_METHODS: list[dict[str, str]] = [
+    {"label": "Email", "value": PROFILE["email"], "href": "mailto:" + PROFILE["email"], "note": "Research, engineering, and project conversations."},
+    {"label": "Phone", "value": PROFILE["phone"], "href": "tel:+14803598122", "note": "Professional inquiries."},
     {
         "label": "LinkedIn",
         "value": "kalebacoleman",
