@@ -55,8 +55,8 @@ class PortfolioRouteTests(unittest.TestCase):
                 self.assertTrue(response.headers["Location"].endswith(target))
 
     def test_curated_content_is_exposed(self) -> None:
-        self.assertEqual(len(PROJECTS), 5)
-        self.assertEqual(len(SKILLS), 4)
+        self.assertGreaterEqual(len(PROJECTS), 6)
+        self.assertGreaterEqual(len(SKILLS), 5)
 
         projects_page = self.client.get("/projects")
         self.assertEqual(projects_page.status_code, 200)

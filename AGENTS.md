@@ -58,3 +58,7 @@ This file captures implementation decisions for the Flask portfolio app in this 
   - Variable: `AZURE_WEBAPP_NAME`
 - Azure Web App startup command should be:
   - `gunicorn --bind=0.0.0.0 --timeout 600 app:app`
+
+## October 2026 migration
+
+The user requested GitHub Pages hosting. `.github/workflows/pages.yml` is the primary deployment workflow; Azure is manual-only for rollback. Build static output with `python build_static.py --base-path /portfolio`. Retain the existing page style and factual content rules. Current routes follow the README; the numbered legacy routes redirect.

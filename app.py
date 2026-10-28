@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 PROFILE: dict[str, str] = {
     "name": "Kaleb Coleman",
-    "headline": "Data Science Student Building Machine Learning, Modeling, and AI Systems",
+    "headline": "AI Engineering (Robotics) at ASU · Simulation, Control, and Machine Learning",
     "intro": (
-        "I am a data science student focused on machine learning, deep learning, data "
-        "engineering, robotics-adjacent AI, and research-oriented modeling. I build "
+        "I am an M.S. AI Engineering (Robotics) student at ASU, doing research with the RISE Lab. My work connects machine learning, deep learning, data "
+        "engineering, robotics simulation, and control. I build "
         "reproducible technical projects that move from raw data collection through "
         "analysis, experimentation, and communication."
     ),
@@ -19,12 +19,10 @@ PROFILE: dict[str, str] = {
         "My work is centered on applied ML, statistical modeling, autonomous decision systems, "
         "and technical research projects that are useful in both lab and industry settings."
     ),
-    "degree": "B.S. in Data Science",
+    "degree": "M.S. AI Engineering (Robotics), ASU",
     "minor": "Cybersecurity minor",
-    "graduation": "Expected May 2026",
-    "email": "kaleb.a.coleman@gmail.com",
-    "phone": "480-359-8122",
-    "linkedin_url": "https://linkedin.com/in/kaleb-coleman-a1807a284",
+    "graduation": "Expected May 2028",
+    "linkedin_url": "https://www.linkedin.com/in/kalebacoleman/",
     "github_url": "https://github.com/kalebcoleman",
     "site_description": (
         "Kaleb Coleman portfolio featuring machine learning, AI, data science, and research-focused "
@@ -43,6 +41,7 @@ NAV_ITEMS: list[dict[str, Any]] = [
 ]
 
 SKILLS: list[dict[str, Any]] = [
+    {"name": "Robotics / Control", "summary": "Tools used in current simulation research and control experiments.", "items": ["NVIDIA Isaac Sim", "MuJoCo", "USD scene authoring", "Inverse kinematics", "Bimanual manipulation", "Model predictive control", "System identification", "Simulation validation"]},
     {
         "name": "Languages",
         "summary": "Core programming languages used across modeling, data pipelines, and application work.",
@@ -99,6 +98,15 @@ SKILLS: list[dict[str, Any]] = [
 ]
 
 PROJECTS: list[dict[str, Any]] = [
+    {
+        "name": "Two-Arm Manipulation in Isaac Sim",
+        "repo_name": "rise-two-arm-research",
+        "repo_url": "https://github.com/kalebcoleman/rise-two-arm-research",
+        "summary": "RISE Lab research on two opposing UR5e arms with RG2 grippers manipulating a shared bar in NVIDIA Isaac Sim 5.1. Includes a reproducible motion demonstration and documented experimental evidence.",
+        "stack": ["Python", "NVIDIA Isaac Sim", "USD", "Inverse kinematics"],
+        "highlights": ["Added collision validation, joint-frame corrections, object-space goals, and per-arm inverse kinematics.", "The accepted 26-second simulation recorded four-finger contact at every measured sample, zero unexpected collisions, and maximum position tracking error of 2.02 mm.", "Documented load and speed experiments, failure cases, and reconstruction instructions. Physical calibration remains future work."],
+        "featured": True,
+    },
     {
         "name": "NBA Shot Data Engineering Package",
         "repo_name": "spatialSportsR",
@@ -188,9 +196,9 @@ PROJECTS: list[dict[str, Any]] = [
 
 EXPERIENCE: list[dict[str, str]] = [
     {
-        "title": "Data Analyst",
-        "organization": "Recording Academy (GRAMMYs)",
-        "period": "Recent experience",
+        "title": "Website Audience Analysis Project",
+        "organization": "The Career Accelerator — The GRAMMYs Project",
+        "period": "Training project, 2023",
         "summary": (
             "Worked on web audience analysis, exploratory data analysis, segmentation, and testing-oriented "
             "insights to support digital content decisions."
@@ -207,51 +215,17 @@ EXPERIENCE: list[dict[str, str]] = [
     },
 ]
 
-RESEARCH_ITEMS: list[dict[str, str]] = [
-    {
-        "title": "Research-facing portfolio direction",
-        "summary": (
-            "Current work emphasizes machine learning, diffusion and deep learning experiments, data engineering, "
-            "game AI, and technical projects that fit research labs, robotics-adjacent AI, and graduate preparation."
-        ),
-    },
-    {
-        "title": "Private-data project timing",
-        "summary": (
-            "A larger applied project will be added after May 8 once the underlying private data can be discussed "
-            "safely. Until then, the portfolio only references the scale and outcome, not the protected dataset itself."
-        ),
-    },
+RESEARCH_ITEMS = [
+    {"title": "Two-arm manipulation in NVIDIA Isaac Sim", "summary": "RISE Lab simulation research with opposing UR5e arms and RG2 grippers holding a shared bar. Work includes collision validation, joint-frame corrections, inverse kinematics, and coordinated-motion experiments. The current model is a simulation; physical digital-twin calibration is ongoing."},
+    {"title": "Energy-aware prescribed-time quadrotor control", "summary": "Collaborating with John Lok on an S500-based MuJoCo test bench, studying tracking deadlines, motor lag, drag, wind estimation, and system identification. Results are simulation-based; hardware validation remains future work."},
 ]
-
-AWARDS: list[dict[str, str]] = [
-    {
-        "title": "Visualization award-winning analytics project",
-        "summary": (
-            "Recognized for collaborative analytics and data storytelling on a project built from millions of rows. "
-            "The underlying data remains private until May 8, so the site intentionally mentions the award and scale "
-            "without disclosing the protected subject matter."
-        ),
-    }
-]
-
-EDUCATION: dict[str, str] = {
-    "school": "Northern Arizona University",
-    "program": "B.S. in Data Science",
-    "details": "Cybersecurity minor",
-    "timeline": "Expected graduation: May 2026",
-}
+AWARDS = [{"title": "Best Visualization — NAU ASA DataFest 2026", "summary": "Recognized for collaborative data analysis and visual storytelling during the 48-hour competition."}]
+EDUCATION = {"school": "Arizona State University", "program": "M.S. Artificial Intelligence Engineering (Robotics)", "details": "Previously: B.S. Data Science, Cybersecurity minor, Northern Arizona University (May 2026)", "timeline": "Expected master's completion: May 2028"}
 
 CONTACT_METHODS: list[dict[str, str]] = [
     {
-        "label": "Email",
-        "value": PROFILE["email"],
-        "href": f"mailto:{PROFILE['email']}",
-        "note": "Best for research, internship, and project conversations.",
-    },
-    {
         "label": "LinkedIn",
-        "value": "kaleb-coleman-a1807a284",
+        "value": "kalebacoleman",
         "href": PROFILE["linkedin_url"],
         "note": "Professional background and current updates.",
     },
@@ -260,12 +234,6 @@ CONTACT_METHODS: list[dict[str, str]] = [
         "value": "kalebcoleman",
         "href": PROFILE["github_url"],
         "note": "Code, project repositories, and technical work.",
-    },
-    {
-        "label": "Phone",
-        "value": PROFILE["phone"],
-        "href": f"tel:+1{PROFILE['phone'].replace('-', '')}",
-        "note": "Available for direct follow-up when needed.",
     },
 ]
 

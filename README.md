@@ -1,61 +1,27 @@
 # Kaleb Coleman Portfolio
 
-Personal portfolio web app built with Flask, Jinja, and a lightweight static frontend.
+Robotics, control, machine learning, and data engineering portfolio. Flask/Jinja provides a shared source for local development and a static GitHub Pages export.
 
-## Current Site Structure
+## Public website
 
-The portfolio now uses a simplified information architecture:
+https://kalebcoleman.github.io/portfolio/
 
-- `/home`
-- `/projects`
-- `/skills`
-- `/experience`
-- `/contact`
-- `/resume`
-
-Legacy numbered routes `/1` through `/5` remain in place as redirects so old links do not break.
-
-## Content Direction
-
-This version of the site is intentionally focused on:
-
-- machine learning and deep learning work
-- research-facing technical projects
-- data engineering and modeling
-- internships, labs, and graduate-oriented review
-
-The Projects page is curated around strong public repositories instead of listing every repo.
-
-## Project Structure
-
-- [app.py](/Users/itzjuztmya/Kaleb/portfolio/app.py)
-- [templates/](/Users/itzjuztmya/Kaleb/portfolio/templates)
-- [static/css/base.css](/Users/itzjuztmya/Kaleb/portfolio/static/css/base.css)
-- [static/resume.pdf](/Users/itzjuztmya/Kaleb/portfolio/static/resume.pdf)
-- [tests/test_routes.py](/Users/itzjuztmya/Kaleb/portfolio/tests/test_routes.py)
-
-## Run Locally
+## Build and preview
 
 ```bash
-pip install -r requirements.txt
-export FLASK_APP=app.py
-flask run --port 5001
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python tests/test_routes.py
+.venv/bin/python build_static.py --base-path /portfolio
+python3 -m http.server 8000 --directory dist
 ```
 
-Open [http://127.0.0.1:5001/home](http://127.0.0.1:5001/home).
+The export uses the `/portfolio` base path expected by GitHub Pages. To preview at the server root, build with `--base-path ''` instead. Do not commit generated `dist/` files.
 
-## Test
+## Deployment
 
-```bash
-python3 tests/test_routes.py
-```
+GitHub Settings → Pages → Source: **GitHub Actions**. Pushes to `master` run `.github/workflows/pages.yml`, test the Flask routes, export static HTML and assets, and deploy the Pages artifact. No Azure subscription, Flask server, or secrets are needed for Pages. The old Azure workflow is manual-only for rollback; its resources are not deleted by this migration.
 
-## Deployment Notes
+The static export includes Home, Projects, Skills, Experience, Contact, the résumé PDF, and compatibility redirects for `/1` through `/5` and `/resume`. Source content is in `app.py`, templates in `templates/`, styling and assets in `static/`.
 
-- Deployment target is Azure Web App
-- Workflow file: `.github/workflows/azure-webapp-deploy.yml`
-- Startup command:
-
-```bash
-gunicorn --bind=0.0.0.0 --timeout 600 app:app
-```
+Robotics results are explicitly simulation-based; physical digital-twin calibration and quadrotor hardware validation remain future work. The downloadable résumé is a prior snapshot and may lag the site's current research details.
