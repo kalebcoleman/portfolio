@@ -19,6 +19,17 @@
     <p><strong>Outcome:</strong> In one 26-second simulation run, all measured samples retained four-finger contact, with no unexpected collisions and 0.135 mm maximum slip. These are simulation results; physical calibration remains in progress.</p>
     <p><a class="text-link" href="https://github.com/kalebcoleman/rise-two-arm-research/blob/main/docs/VALIDATION.md">View experimental evidence</a> · <a class="text-link" href="https://github.com/kalebcoleman/rise-two-arm-research">Explore the research and demonstration</a></p>
 </section>
+<section class="section-block panel" id="nau-capstone">
+    <p class="eyebrow">NAU undergraduate capstone · UGRADS</p>
+    <h2>Shot difficulty and scoring across the NBA and NHL</h2>
+    <p>How much of a player's shooting efficiency reflects the difficulty of the shots they take? This capstone uses matched 2014–2024 NBA and NHL shot data to study expected scoring, shot difficulty, and player performance.</p>
+    <figure>
+        <img src="{{ url_for('static', filename='images/nba_plots/nba-sdi-vs-actual-2014-2024.jpg') }}" alt="Scatterplot comparing NBA players' average shot difficulty with actual field-goal percentage from 2014 to 2024" style="width:100%;max-width:960px;height:auto;border-radius:12px">
+        <figcaption>NBA shot difficulty versus actual field-goal percentage. Point size represents shot volume; color shows actual minus expected scoring rate.</figcaption>
+    </figure>
+    <p><strong>My work:</strong> Developed data preparation and validation workflows, shot-quality models, a Shot Difficulty Index, and visual comparisons of player performance. The team presented the capstone at NAU UGRADS.</p>
+    <p><a class="text-link" href="https://github.com/kalebcoleman/nau-capstone" target="_blank" rel="noopener noreferrer">Explore the capstone repository</a> · <a class="text-link" href="https://github.com/kalebcoleman/nau-capstone/blob/main/docs/final-poster-guide.md" target="_blank" rel="noopener noreferrer">View poster research and figures</a></p>
+</section>
 <section class="project-grid">
     {% for project in projects %}
     <article class="project-card project-card-detailed">
